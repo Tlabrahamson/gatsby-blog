@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "gatsby develop -p 9988 -o"
+    "dev": "gatsby develop -p 9988 -o",
+    "build": "gatsby build",
+    "serve": "gatsby serve -p 9500 -o"
   },
   "keywords": [],
   "author": "",
@@ -26,7 +27,9 @@
     "prism-react-renderer": "^1.1.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-helmet": "^6.1.0",
     "react-live": "^2.2.2",
+    "react-seo-component": "^2.0.2",
     "styled-components": "^5.2.0"
   }
 }

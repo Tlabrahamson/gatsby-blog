@@ -3,8 +3,8 @@ import Img from "gatsby-image";
 import React from "react";
 import styled from "styled-components";
 import { Layout } from "../components/Layout";
-// import Dump from "../components/Dump";
-// import { useSiteMetadata } from "../hooks/useSiteMetadata";
+import SEO from "react-seo-component";
+import { useSiteMetadata } from "../hooks/useSiteMetadata";
 
 const IndexWrapper = styled.main``;
 
@@ -15,28 +15,28 @@ const Image = styled(Img)`
 `;
 
 export default ({ data }) => {
-  // const {
-  //   description,
-  //   title,
-  //   image,
-  //   siteUrl,
-  //   siteLanguage,
-  //   siteLocale,
-  //   twitterUsername
-  // } = useSiteMetadata();
+  const {
+    description,
+    title,
+    image,
+    siteUrl,
+    siteLanguage,
+    siteLocale,
+    twitterUsername
+  } = useSiteMetadata();
 
   return (
     <Layout>
+      <SEO
+        title={title}
+        description={description}
+        image={`${siteUrl}${image}`}
+        pathname={siteUrl}
+        siteLanguage={siteLanguage}
+        siteLocale={siteLocale}
+        twitterUsername={twitterUsername}
+      />
       <IndexWrapper>
-        {/* <Dump
-          title={title}
-          description={description}
-          image={`${siteUrl}${image}`}
-          pathname={siteUrl}
-          siteLanguage={siteLanguage}
-          siteLocale={siteLocale}
-          twitterUsername={twitterUsername}
-        /> */}
         {data.allMdx.nodes.map(({ id, excerpt, frontmatter, fields }) => (
           <PostWrapper key={id}>
             <Link to={fields.slug}>
@@ -66,6 +66,14 @@ export const query = graphql`
         frontmatter {
           title
           date(formatString: "YYYY MMMM Do")
+          cover {
+            publicURL
+            childImageSharp {
+              sizes(maxWidth: 2000, traceSVG: { color: "#639" }) {
+                ...GatsbyImageSharpSizes_tracedSVG
+              }
+            }
+          }
         }
         fields {
           slug
