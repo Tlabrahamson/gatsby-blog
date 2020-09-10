@@ -6,28 +6,21 @@ import { Layout } from "../components/Layout";
 import SEO from "react-seo-component";
 import { useSiteMetadata } from "../hooks/useSiteMetadata";
 
-const IndexWrapper = styled.main``;
+const IndexWrapper = styled.main`
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 4rem 2rem;
+`;
 
 const PostWrapper = styled.div``;
 
 const PostContent = styled.div`
-  display: flex;
-  flex-direction: row;
-`;
-
-const Image = styled(Img)`
-  border-radius: 5px;
-  width: 300px;
-  margin-right: 2rem;
-`;
-
-const PostTitle = styled.h1`
-  color: #000;
-`;
-
-const PostBody = styled.p`
-  color: #000;
-  font-family: sans-serif;
+  display: grid;
+  grid-template-columns: 40% 1fr;
+  grid-gap: 2rem;
+  @media (max-width: 800px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const PostDate = styled.p`
@@ -65,15 +58,15 @@ export default ({ data }) => {
             <PostContent>
               <Link to={fields.slug}>
                 {!!frontmatter.cover ? (
-                  <Image sizes={frontmatter.cover.childImageSharp.sizes} />
+                  <Img sizes={frontmatter.cover.childImageSharp.sizes} />
                 ) : null}
               </Link>
               <div>
                 <PostDate>{frontmatter.date}</PostDate>
                 <Link to={fields.slug}>
-                  <PostTitle>{frontmatter.title}</PostTitle>
+                  <h1>{frontmatter.title}</h1>
                 </Link>
-                <PostBody>{excerpt}</PostBody>
+                <p>{excerpt}</p>
               </div>
             </PostContent>
             <hr />

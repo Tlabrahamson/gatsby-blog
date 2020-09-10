@@ -9,6 +9,7 @@ const AppStyles = styled.main`
   width: 800px;
   max-width: 100%;
   margin: 0 auto;
+  background: #fff;
 `;
 
 export const Layout = ({ children }) => {
@@ -16,11 +17,9 @@ export const Layout = ({ children }) => {
   return (
     <>
       <GlobalStyles />
-      <AppStyles>
-        <Header siteTitle={title} siteDescription={description} />
-        {children}
-        <Footer />
-      </AppStyles>
+      <Header siteTitle={title} siteDescription={description} />
+      <AppStyles>{children}</AppStyles>
+      <Footer />
     </>
   );
 };

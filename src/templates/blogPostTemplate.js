@@ -12,6 +12,10 @@ const Image = styled(Img)`
   max-width: 800px;
 `;
 
+const PostWrapper = styled.div`
+  padding: 4rem 2rem;
+`;
+
 export default ({ data, pageContext }) => {
   const {
     image,
@@ -44,27 +48,29 @@ export default ({ data, pageContext }) => {
       {!!frontmatter.cover ? (
         <Image sizes={frontmatter.cover.childImageSharp.sizes} />
       ) : null}
-      <h1>{frontmatter.title}</h1>
-      <p>{frontmatter.date}</p>
-      <MDXRenderer>{body}</MDXRenderer>
-      {previous === false ? null : (
-        <>
-          {previous && (
-            <Link to={previous.fields.slug}>
-              <p>{previous.frontmatter.title}</p>
-            </Link>
-          )}
-        </>
-      )}
-      {next === false ? null : (
-        <>
-          {next && (
-            <Link to={next.fields.slug}>
-              <p>{next.frontmatter.title}</p>
-            </Link>
-          )}
-        </>
-      )}
+      <PostWrapper>
+        <h1>{frontmatter.title}</h1>
+        <p>{frontmatter.date}</p>
+        <MDXRenderer>{body}</MDXRenderer>
+        {previous === false ? null : (
+          <>
+            {previous && (
+              <Link to={previous.fields.slug}>
+                <p>{previous.frontmatter.title}</p>
+              </Link>
+            )}
+          </>
+        )}
+        {next === false ? null : (
+          <>
+            {next && (
+              <Link to={next.fields.slug}>
+                <p>{next.frontmatter.title}</p>
+              </Link>
+            )}
+          </>
+        )}
+      </PostWrapper>
     </Layout>
   );
 };
