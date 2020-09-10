@@ -10,8 +10,31 @@ const IndexWrapper = styled.main``;
 
 const PostWrapper = styled.div``;
 
+const PostContent = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
 const Image = styled(Img)`
   border-radius: 5px;
+  width: 300px;
+  margin-right: 2rem;
+`;
+
+const PostTitle = styled.h1`
+  color: #000;
+`;
+
+const PostBody = styled.p`
+  color: #000;
+  font-family: sans-serif;
+`;
+
+const PostDate = styled.p`
+  color: #000;
+  font-family: sans-serif;
+  font-size: 12px;
+  font-weight: 600;
 `;
 
 export default ({ data }) => {
@@ -39,14 +62,21 @@ export default ({ data }) => {
       <IndexWrapper>
         {data.allMdx.nodes.map(({ id, excerpt, frontmatter, fields }) => (
           <PostWrapper key={id}>
-            <Link to={fields.slug}>
-              {!!frontmatter.cover ? (
-                <Image sizes={frontmatter.cover.childImageSharp.sizes} />
-              ) : null}
-              <h1>{frontmatter.title}</h1>
-              <p>{frontmatter.date}</p>
-              <p>{excerpt}</p>
-            </Link>
+            <PostContent>
+              <Link to={fields.slug}>
+                {!!frontmatter.cover ? (
+                  <Image sizes={frontmatter.cover.childImageSharp.sizes} />
+                ) : null}
+              </Link>
+              <div>
+                <PostDate>{frontmatter.date}</PostDate>
+                <Link to={fields.slug}>
+                  <PostTitle>{frontmatter.title}</PostTitle>
+                </Link>
+                <PostBody>{excerpt}</PostBody>
+              </div>
+            </PostContent>
+            <hr />
           </PostWrapper>
         ))}
       </IndexWrapper>

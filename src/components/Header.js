@@ -8,7 +8,6 @@ export const Header = ({ siteTitle, siteDescription }) => (
   <HeaderStyles>
     <Link to="/">
       <h1>{siteTitle}</h1>
-      <p>{siteDescription}</p>
     </Link>
   </HeaderStyles>
 );

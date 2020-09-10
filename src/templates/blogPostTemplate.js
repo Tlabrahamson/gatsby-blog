@@ -1,9 +1,16 @@
 import { graphql, Link } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import React from "react";
+import Img from "gatsby-image";
 import SEO from "react-seo-component";
+import styled from "styled-components";
 import { Layout } from "../components/Layout";
 import { useSiteMetadata } from "../hooks/useSiteMetadata";
+
+const Image = styled(Img)`
+  border-radius: 5px;
+  max-width: 800px;
+`;
 
 export default ({ data, pageContext }) => {
   const {
@@ -34,6 +41,9 @@ export default ({ data, pageContext }) => {
         publishedDate={date}
         modifiedDate={new Date(Date.now()).toISOString()}
       />
+      {!!frontmatter.cover ? (
+        <Image sizes={frontmatter.cover.childImageSharp.sizes} />
+      ) : null}
       <h1>{frontmatter.title}</h1>
       <p>{frontmatter.date}</p>
       <MDXRenderer>{body}</MDXRenderer>
@@ -68,6 +78,11 @@ export const query = graphql`
         date(formatString: "YYYY MMMM Do")
         cover {
           publicURL
+          childImageSharp {
+            sizes(maxWidth: 2000, traceSVG: { color: "#639" }) {
+              ...GatsbyImageSharpSizes_tracedSVG
+            }
+          }
         }
       }
       body
