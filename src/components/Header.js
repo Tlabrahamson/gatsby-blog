@@ -1,13 +1,12 @@
 import { Link } from "gatsby";
 import React from "react";
 import styled from "styled-components";
+import Logo from "../assets/Logo.png";
 
 const HeaderStyles = styled.header`
-  height: 8rem;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   background: #eee;
 `;
 
@@ -31,7 +30,7 @@ const NavLi = styled.li`
 export const Header = ({ siteTitle }) => (
   <HeaderStyles>
     <Link to="/">
-      <h1>{siteTitle}</h1>
+      <img src={Logo} alt="Tim Abrahamson" />
     </Link>
 
     <nav>
