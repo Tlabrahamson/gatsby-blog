@@ -20,6 +20,10 @@ a {
     text-decoration: none;
 }
 
+li {
+    list-style: none;
+}
+
 hr {
     margin: 4rem 0rem;
 }

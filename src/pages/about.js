@@ -4,7 +4,7 @@ import { Layout } from "../components/Layout";
 import SEO from "react-seo-component";
 import { useSiteMetadata } from "../hooks/useSiteMetadata";
 
-const IndexWrapper = styled.main`
+const AboutWrapper = styled.main`
   display: grid;
   grid-template-columns: 1fr;
   padding: 2rem 2rem;
@@ -32,9 +32,9 @@ export default ({ data }) => {
         siteLocale={siteLocale}
         twitterUsername={twitterUsername}
       />
-      <IndexWrapper>
-        <h1>I am contructing this as fast as my little fingers can go.</h1>
-      </IndexWrapper>
+      <AboutWrapper>
+        <h1>This is going to be about me.</h1>
+      </AboutWrapper>
     </Layout>
   );
 };
