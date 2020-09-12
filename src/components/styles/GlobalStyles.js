@@ -8,15 +8,16 @@ const GlobalStyles = createGlobalStyle`
 }
 
 h1,h2,h3,h4,h5,h6 {
-    font-family: sans-serif;
+    font-family: 'Work Sans', sans-serif;
     line-height: 1.5em;
 }
 
 p {
-    font-family: sans-serif;
+    font-family: 'Varela', sans-serif;
 }
 
 a {
+    font-family: 'Varela', sans-serif;
     text-decoration: none;
 }
 

@@ -35,6 +35,10 @@ export default ({ data }) => {
       />
       <AboutWrapper>
         <h1>This is going to be about me.</h1>
+        <p>
+          I'll probably include a favorable image of myself as well as a small
+          bio.
+        </p>
       </AboutWrapper>
     </Layout>
   );

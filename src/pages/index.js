@@ -34,7 +34,13 @@ export default ({ data }) => {
         twitterUsername={twitterUsername}
       />
       <IndexWrapper>
-        <h1>I am contructing this as fast as my little fingers can go.</h1>
+        <h1>Hey! It seems you've encountered my blog.</h1>
+        <p>
+          I am the web developer called Tim. My goal here is to type up entries
+          that are helpful for developers of all skill levels. I hope to also
+          include a video to go along with every blog just in case you don't
+          care much for reading. 👍
+        </p>
       </IndexWrapper>
     </Layout>
   );

@@ -9,7 +9,6 @@ const HeaderStyles = styled.header`
   justify-content: space-between;
   padding: 0rem 2rem;
   background: #3a5772;
-  border-bottom: solid 0.25rem #243647;
 `;
 
 const LogoImg = styled.img`
@@ -26,14 +25,14 @@ const NavLi = styled.li`
   display: grid;
   grid-template-columns: 1fr auto;
   grid-column-gap: 2rem;
-  font-size: 24px;
+  font-size: 18px;
   font-family: sans-serif;
 
   a {
     color: #fff;
     transition: all 0.3s ease;
     &:hover {
-      color: #000;
+      color: #1d2b39;
     }
   }
 `;
