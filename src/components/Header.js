@@ -10,7 +10,6 @@ const HeaderStyles = styled.header`
   padding: 0rem 2rem;
   background: #3a5772;
   border-bottom: solid 0.25rem #243647;
-  margin-bottom: 4rem;
 `;
 
 const LogoImg = styled.img`

@@ -8,12 +8,12 @@ import { Layout } from "../components/Layout";
 import { useSiteMetadata } from "../hooks/useSiteMetadata";
 
 const Image = styled(Img)`
-  border-radius: 5px;
   max-width: 800px;
 `;
 
 const PostWrapper = styled.div`
-  padding: 4rem 2rem;
+  padding: 2rem 2rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 `;
 
 export default ({ data, pageContext }) => {

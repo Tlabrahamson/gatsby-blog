@@ -10,6 +10,7 @@ const AppStyles = styled.main`
   max-width: 100%;
   margin: 0 auto;
   background: #fff;
+  padding: 4rem 0;
 `;
 
 export const Layout = ({ children }) => {
