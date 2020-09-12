@@ -7,7 +7,7 @@ import { useSiteMetadata } from "../hooks/useSiteMetadata";
 const AboutWrapper = styled.main`
   display: grid;
   grid-template-columns: 1fr;
-  padding: 2rem 2rem;
+  padding: 0 2rem;
 `;
 
 export default ({ data }) => {
