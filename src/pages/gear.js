@@ -4,7 +4,7 @@ import { Layout } from "../components/Layout";
 import SEO from "react-seo-component";
 import { useSiteMetadata } from "../hooks/useSiteMetadata";
 
-const IndexWrapper = styled.main`
+const GearWrapper = styled.main`
   display: grid;
   grid-template-columns: 1fr;
   padding: 2rem 2rem;
@@ -33,18 +33,10 @@ export default ({ data }) => {
         siteLocale={siteLocale}
         twitterUsername={twitterUsername}
       />
-      <IndexWrapper>
-        <h1>Hey! It seems you've encountered my blog.</h1>
-        <p>
-          I am the web developer called Tim. My goal here is to type up entries
-          that are helpful for developers of all skill levels. I hope to also
-          include a video to go along with every blog just in case you don't
-          care much for reading.{" "}
-          <span role="img" aria-label="This is a thumbs up emoji">
-            👍
-          </span>
-        </p>
-      </IndexWrapper>
+      <GearWrapper>
+        <h1>This will list out the gear that I use at the moment.</h1>
+        <p>It's stuff that I enjoy that doesn't break the bank. (Completely)</p>
+      </GearWrapper>
     </Layout>
   );
 };

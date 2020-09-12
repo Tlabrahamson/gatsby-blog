@@ -4,7 +4,7 @@ import { Layout } from "../components/Layout";
 import SEO from "react-seo-component";
 import { useSiteMetadata } from "../hooks/useSiteMetadata";
 
-const IndexWrapper = styled.main`
+const ContactWrapper = styled.main`
   display: grid;
   grid-template-columns: 1fr;
   padding: 2rem 2rem;
@@ -33,18 +33,18 @@ export default ({ data }) => {
         siteLocale={siteLocale}
         twitterUsername={twitterUsername}
       />
-      <IndexWrapper>
-        <h1>Hey! It seems you've encountered my blog.</h1>
+      <ContactWrapper>
+        <h1>I'll leave a couple forms of contact here.</h1>
         <p>
-          I am the web developer called Tim. My goal here is to type up entries
-          that are helpful for developers of all skill levels. I hope to also
-          include a video to go along with every blog just in case you don't
-          care much for reading.{" "}
-          <span role="img" aria-label="This is a thumbs up emoji">
-            👍
+          I doubt anyone will ever have a reason to do so{" "}
+          <span
+            role="img"
+            aria-label="This is an emoji sticking its' tongue out"
+          >
+            😝
           </span>
         </p>
-      </IndexWrapper>
+      </ContactWrapper>
     </Layout>
   );
 };

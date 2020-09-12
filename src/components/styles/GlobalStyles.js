@@ -7,6 +7,11 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
 }
 
+nav {
+    width: 100%;
+    max-width: 800px;
+}
+
 h1,h2,h3,h4,h5,h6 {
     font-family: 'Work Sans', sans-serif;
     line-height: 1.5;

@@ -5,6 +5,7 @@ import Logo from "../assets/Logo.png";
 
 const HeaderStyles = styled.header`
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
   padding: 0rem 2rem;
@@ -19,12 +20,14 @@ const LogoImg = styled.img`
 const NavUl = styled.ul`
   display: flex;
   padding: 1rem;
+  width: 100%;
+  justify-content: space-between;
 `;
 
 const NavLi = styled.li`
-  display: grid;
-  grid-template-columns: 1fr auto;
-  grid-column-gap: 2rem;
+  // display: grid;
+  // grid-template-columns: 1fr auto;
+  // grid-column-gap: 2rem;
   font-size: 18px;
   font-family: sans-serif;
 
@@ -50,6 +53,12 @@ export const Header = ({ siteTitle }) => (
         </NavLi>
         <NavLi>
           <Link to="/blog">Blog</Link>
+        </NavLi>
+        <NavLi>
+          <Link to="/gear">Gear</Link>
+        </NavLi>
+        <NavLi>
+          <Link to="/contact">Contact</Link>
         </NavLi>
       </NavUl>
     </nav>
