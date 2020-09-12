@@ -7,6 +7,10 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
 }
 
+body {
+    overflow-x: hidden;
+}
+
 h1,h2,h3,h4,h5,h6 {
     font-family: sans-serif;
     line-height: 1.5em;

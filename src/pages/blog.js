@@ -9,7 +9,7 @@ import { useSiteMetadata } from "../hooks/useSiteMetadata";
 const BlogWrapper = styled.main`
   display: grid;
   grid-template-columns: 1fr;
-  padding: 4rem 2rem;
+  padding: 2rem 2rem;
 `;
 
 const PostWrapper = styled.div``;

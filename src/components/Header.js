@@ -6,13 +6,25 @@ import Logo from "../assets/Logo.png";
 const HeaderStyles = styled.header`
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  background: #eee;
+  justify-content: space-between;
+  padding: 0rem 2rem;
+  background: #3a5772;
+  border-bottom: solid 0.25rem #243647;
+  margin-bottom: 4rem;
+`;
+
+const LogoImg = styled.img`
+  width: 100%;
+  max-width: 200px;
 `;
 
 const NavUl = styled.ul`
   display: flex;
-  width: 100%;
+  width: 256px;
+  background: #243647;
+  padding: 1rem 1rem;
+  margin-right: -4rem;
+  border-radius: 10px;
 `;
 
 const NavLi = styled.li`
@@ -23,14 +35,14 @@ const NavLi = styled.li`
   font-family: sans-serif;
 
   a {
-    color: #666;
+    color: #fff;
   }
 `;
 
 export const Header = ({ siteTitle }) => (
   <HeaderStyles>
     <Link to="/">
-      <img src={Logo} alt="Tim Abrahamson" />
+      <LogoImg src={Logo} alt="Tim Abrahamson" />
     </Link>
 
     <nav>
