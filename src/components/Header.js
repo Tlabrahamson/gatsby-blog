@@ -20,11 +20,7 @@ const LogoImg = styled.img`
 
 const NavUl = styled.ul`
   display: flex;
-  width: 256px;
-  background: #243647;
-  padding: 1rem 1rem;
-  margin-right: -4rem;
-  border-radius: 10px;
+  padding: 1rem;
 `;
 
 const NavLi = styled.li`
