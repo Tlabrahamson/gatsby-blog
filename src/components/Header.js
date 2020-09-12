@@ -31,6 +31,10 @@ const NavLi = styled.li`
 
   a {
     color: #fff;
+    transition: all 0.3s ease;
+    &:hover {
+      color: #000;
+    }
   }
 `;
 
