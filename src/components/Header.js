@@ -8,13 +8,13 @@ const HeaderStyles = styled.header`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 0rem 2rem;
+  padding: 1rem 2rem;
   background: #3a5772;
 `;
 
 const LogoImg = styled.img`
   width: 100%;
-  max-width: 200px;
+  max-width: 300px;
 `;
 
 const NavUl = styled.ul`
@@ -22,18 +22,18 @@ const NavUl = styled.ul`
   padding: 1rem;
   width: 100%;
   justify-content: space-between;
+  border-top: solid 2px #1d2b39;
+  border-bottom: solid 2px #1d2b39;
 `;
 
 const NavLi = styled.li`
-  // display: grid;
-  // grid-template-columns: 1fr auto;
-  // grid-column-gap: 2rem;
   font-size: 18px;
   font-family: sans-serif;
 
   a {
     color: #fff;
     transition: all 0.3s ease;
+    font-family: "Pompiere", cursive;
     &:hover {
       color: #1d2b39;
     }

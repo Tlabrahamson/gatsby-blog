@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "gatsby";
 import styled from "styled-components";
 import { Layout } from "../components/Layout";
 import SEO from "react-seo-component";
@@ -34,15 +35,26 @@ export default ({ data }) => {
         twitterUsername={twitterUsername}
       />
       <ContactWrapper>
-        <h1>I'll leave a couple forms of contact here.</h1>
+        <h1>Want To Contact Me?</h1>
+        &nbsp;
+        <h2>My Twitter Handle</h2>
         <p>
-          I doubt anyone will ever have a reason to do so{" "}
-          <span
-            role="img"
-            aria-label="This is an emoji sticking its' tongue out"
-          >
-            😝
-          </span>
+          The best way to contact me is my Twitter handle{" "}
+          <Link target="_blank" to="https://twitter.com/TimAbrahamson1">
+            {twitterUsername}
+          </Link>
+          . I should be able to respond relatively quick.
+        </p>
+        &nbsp;
+        <h2>My Email Address</h2>
+        <p>
+          If you want to email me, that is okay. I'm less likely to respond to
+          emails. There is a good chance that I will read it though! The address
+          is{" "}
+          <Link href="mailto: tlabrahamson@yahoo.com">
+            tlabrahamson@yahoo.com
+          </Link>
+          .
         </p>
       </ContactWrapper>
     </Layout>

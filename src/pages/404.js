@@ -1,10 +1,11 @@
 import React from "react";
-import styled from "styled-components";
+import { Link } from "gatsby";
 import { Layout } from "../components/Layout";
+import styled from "styled-components";
 import SEO from "react-seo-component";
 import { useSiteMetadata } from "../hooks/useSiteMetadata";
 
-const IndexWrapper = styled.main`
+const FourOhFourWrapper = styled.main`
   display: grid;
   grid-template-columns: 1fr;
   padding: 2rem 2rem;
@@ -33,18 +34,14 @@ export default ({ data }) => {
         siteLocale={siteLocale}
         twitterUsername={twitterUsername}
       />
-      <IndexWrapper>
-        <h1>Hey! It seems you've encountered my blog.</h1>
+      <FourOhFourWrapper>
+        <h1>Uh oh!</h1>
+        <p>You just hit a 404.</p>
         <p>
-          I'm a web developer called Tim. My goal here is to type up entries
-          that are helpful for developers of all skill levels. I hope to also
-          include a video to go along with every blog just in case you don't
-          care much for reading.{" "}
-          <span role="img" aria-label="This is a thumbs up emoji">
-            👍
-          </span>
+          The page doesn't exist. If you think that it should{" "}
+          <Link to="/contact">please contact me.</Link>
         </p>
-      </IndexWrapper>
+      </FourOhFourWrapper>
     </Layout>
   );
 };

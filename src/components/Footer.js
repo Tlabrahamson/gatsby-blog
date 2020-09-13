@@ -7,6 +7,10 @@ const FooterStyle = styled.footer`
   color: #fff;
   padding: 2rem 4rem;
   width: 100%;
+  h3 {
+    font-family: "Pompiere", cursive;
+    font-size: 24px;
+  }
 `;
 
 export const Footer = () => (

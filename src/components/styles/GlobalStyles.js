@@ -24,8 +24,8 @@ p {
 }
 
 a {
-    font-family: 'Varela', sans-serif;
     text-decoration: none;
+    font-size: 24px;
 }
 
 li {
