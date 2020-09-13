@@ -33,7 +33,7 @@ const NavLi = styled.li`
   a {
     color: #fff;
     transition: all 0.3s ease;
-    font-family: "Pompiere", cursive;
+    font-family: "Varela", sans-serif;
     &:hover {
       color: #1d2b39;
     }

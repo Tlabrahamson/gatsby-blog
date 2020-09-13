@@ -8,7 +8,7 @@ const FooterStyle = styled.footer`
   padding: 2rem 4rem;
   width: 100%;
   h3 {
-    font-family: "Pompiere", cursive;
+    font-family: "Varela", sans-serif;
     font-size: 24px;
   }
 `;
