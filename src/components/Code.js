@@ -31,6 +31,7 @@ const CopyCode = styled.button`
   position: absolute;
   right: 0.25rem;
   border: 0;
+  top: 0;
   border-radius: 3px;
   margin: 0.25em;
   opacity: 0.3;

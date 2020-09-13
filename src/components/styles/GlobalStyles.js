@@ -7,6 +7,10 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
 }
 
+main {
+    position: relative;
+}
+
 nav {
     width: 100%;
     max-width: 800px;

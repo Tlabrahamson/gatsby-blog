@@ -7,9 +7,14 @@ const FooterStyle = styled.footer`
   color: #fff;
   padding: 2rem 4rem;
   width: 100%;
+  position: absolute;
+  bottom: 0;
   h3 {
     font-family: "Varela", sans-serif;
-    font-size: 24px;
+    font-weight: 200;
+  }
+  @media (max-width: 800px) {
+    position: static;
   }
 `;
 

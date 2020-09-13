@@ -11,16 +11,18 @@ const AppStyles = styled.main`
   margin: 0 auto;
   background: #fff;
   padding: 4rem 0;
+  position: relative;
+  min-height: 100vh;
 `;
 
 export const Layout = ({ children }) => {
   const { title, description } = useSiteMetadata();
   return (
-    <>
+    <main>
       <GlobalStyles />
       <Header siteTitle={title} siteDescription={description} />
       <AppStyles>{children}</AppStyles>
       <Footer />
-    </>
+    </main>
   );
 };

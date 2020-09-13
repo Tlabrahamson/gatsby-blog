@@ -3,9 +3,9 @@ import React from "react";
 import Code from "./src/components/Code";
 
 const components = {
-  h2: ({ children }) => <h2 style={{ color: "rebeccapurple" }}>{children}</h2>,
+  h2: ({ children }) => <h2 style={{ color: "#3a5772" }}>{children}</h2>,
   "p.inlineCode": props => (
-    <code style={{ backgroundColor: "lightgray" }} {...props} />
+    <code style={{ backgroundColor: "#eee" }} {...props} />
   ),
   pre: ({ children: { props } }) => {
     if (props.mdxType === "code") {
