@@ -40,7 +40,7 @@ const NavLi = styled.li`
   }
 `;
 
-export const Header = ({ siteTitle }) => (
+export const Header = () => (
   <HeaderStyles>
     <Link to="/">
       <LogoImg src={Logo} alt="Tim Abrahamson" />
