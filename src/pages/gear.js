@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Layout } from "../components/Layout";
+import { GearLayout } from "../components/GearLayout";
 import SEO from "react-seo-component";
 import { useSiteMetadata } from "../hooks/useSiteMetadata";
 
@@ -40,29 +41,30 @@ export default ({ data }) => {
           list of gear that I am currently working with.
         </p>
         &nbsp;
-        <h2>My Laptop</h2>
-        <p>A 2012 Macbook Pro. A lovely piece of hardware.</p>
-        &nbsp;
-        <h2>My Mouse</h2>
-        <p>An Apple Magic Mouse 2.</p>
-        &nbsp;
-        <h2>My Keyboard</h2>
-        <p>
-          Apple Bluetooth Wireless Mini Keyboard. My plan is to build my own
-          mechanical keyboard.
-        </p>
-        &nbsp;
-        <h2>My Microphone</h2>
-        <p>A Blue Snowball iCE USB Mic.</p>
-        &nbsp;
-        <h2>My Headphones</h2>
-        <p>Sony WH-1000XM3 Noise Cancelling Headset.</p>
-        &nbsp;
-        <h2>My Desk and Chair</h2>
-        <p>
-          I am currently using a fold out table as a desk...and a fold out
-          chair. Dream setup!
-        </p>
+        <GearLayout
+          gearName="My Laptop"
+          gearDescription="A 2012 Macbook Pro. A lovely piece of hardware."
+        />
+        <GearLayout
+          gearName="My Mouse"
+          gearDescription="An Apple Magic Mouse 2."
+        />
+        <GearLayout
+          gearName="My Keyboard"
+          gearDescription="An Apple Bluetooth Wireless Mini Keyboard. I plan on building my own mechanical keyboard soon."
+        />
+        <GearLayout
+          gearName="My Microphone"
+          gearDescription="A Blue Snowball iCE USB Mic."
+        />
+        <GearLayout
+          gearName="My Headphones"
+          gearDescription="Sony WH-1000XM3 Noise Cancelling Headset."
+        />
+        <GearLayout
+          gearName="My Desk and Chair"
+          gearDescription="A fold out table as a desk and a fold out chair. The envy of every developer!"
+        />
       </GearWrapper>
     </Layout>
   );

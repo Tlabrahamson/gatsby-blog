@@ -19,11 +19,11 @@ const LogoImg = styled.img`
 
 const NavUl = styled.ul`
   display: flex;
-  padding: 1rem;
+  padding: 1rem 0;
   width: 100%;
   justify-content: space-between;
-  border-top: solid 2px #1d2b39;
-  border-bottom: solid 2px #1d2b39;
+  // border-top: solid 2px #1d2b39;
+  // border-bottom: solid 2px #1d2b39;
 `;
 
 const NavLi = styled.li`
@@ -32,10 +32,18 @@ const NavLi = styled.li`
 
   a {
     color: #fff;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
     font-family: "Varela", sans-serif;
+    background: #1d2b39;
+    padding: 0.5rem;
+    border-radius: 10px;
     &:hover {
       color: #1d2b39;
+      background: #fff;
+    }
+    &:active {
+      color: #1d2b39;
+      background: #fff;
     }
   }
 `;
