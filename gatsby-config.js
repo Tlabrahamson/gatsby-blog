@@ -1,7 +1,7 @@
 const siteMetadata = {
   title: `A Developer Called Tim`,
   description: `This is my coding blog where I write about my coding journey`,
-  image: `/default-site-image.jpg`,
+  image: `/favicon.svg`,
   siteUrl: `https://timabrahamson.dev`,
   siteLanguage: `en-US`,
   siteLocale: `en_us`,

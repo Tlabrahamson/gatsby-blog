@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import Helmet from "react-helmet";
+import favicon from "../../static/favicon.svg";
 import { useSiteMetadata } from "../hooks/useSiteMetadata";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
@@ -19,6 +21,9 @@ export const Layout = ({ children }) => {
   const { title, description } = useSiteMetadata();
   return (
     <main>
+      <Helmet>
+        <link rel="icon" href={favicon} />
+      </Helmet>
       <GlobalStyles />
       <Header siteTitle={title} siteDescription={description} />
       <AppStyles>{children}</AppStyles>

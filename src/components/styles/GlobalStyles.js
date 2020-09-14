@@ -13,7 +13,7 @@ main {
 
 nav {
     width: 100%;
-    max-width: 800px;
+    max-width: 1200px;
 }
 
 h1,h2,h3,h4,h5,h6 {
