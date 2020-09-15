@@ -1,7 +1,8 @@
 import { Link } from "gatsby";
 import React from "react";
 import styled from "styled-components";
-import Logo from "../assets/Logo.png";
+// import Logo from "../assets/Logo.png";
+import { Logo } from "../components/Logo";
 
 const HeaderStyles = styled.header`
   display: flex;
@@ -12,10 +13,10 @@ const HeaderStyles = styled.header`
   background: #3a5772;
 `;
 
-const LogoImg = styled.img`
-  width: 100%;
-  max-width: 300px;
-`;
+// const LogoImg = styled.img`
+//   width: 100%;
+//   max-width: 300px;
+// `;
 
 const NavUl = styled.ul`
   display: flex;
@@ -51,7 +52,8 @@ const NavLi = styled.li`
 export const Header = () => (
   <HeaderStyles>
     <Link to="/">
-      <LogoImg src={Logo} alt="Tim Abrahamson" />
+      {/* <LogoImg src={Logo} alt="Tim Abrahamson" /> */}
+      <Logo />
     </Link>
 
     <nav>
