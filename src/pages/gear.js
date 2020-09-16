@@ -1,5 +1,5 @@
 import React from "react";
-import { graphql } from "gatsby";
+import { graphql, useStaticQuery } from "gatsby";
 import styled from "styled-components";
 import { Layout } from "../components/Layout";
 import { GearLayout } from "../components/GearLayout";
@@ -31,7 +31,7 @@ const GearWrapper = styled.main`
   }
 `;
 
-export default ({ data }) => {
+export default () => {
   const {
     description,
     title,
@@ -41,6 +41,22 @@ export default ({ data }) => {
     siteLocale,
     twitterUsername
   } = useSiteMetadata();
+
+  const data = useStaticQuery(graphql`
+    query MyQuery {
+      file(relativePath: { eq: "laptop.jpg" }) {
+        childImageSharp {
+          fluid {
+            aspectRatio
+            base64
+            sizes
+            src
+            srcSet
+          }
+        }
+      }
+    }
+  `);
 
   return (
     <Layout>
@@ -62,7 +78,7 @@ export default ({ data }) => {
         <GearLayout
           gearName="Apple MacBook Pro 13.3 Laptop LED Intel i5 3210M 2.5GHz 4GB 500GB"
           gearDescription="A lovely piece of hardware from 2012. I bought it refurbished from Ebay and tossed a SSD as well as 16GB of RAM in it. I only wish it had a slightly better processor and a dedicated GPU."
-          gearImage={data.laptop}
+          gearImage={data.file.childImageSharp.fluid}
         />
         <GearLayout
           gearName="Apple Magic Mouse 2"
@@ -98,14 +114,14 @@ export default ({ data }) => {
 };
 
 // Ehhh
-export const query = graphql`
-  query {
-    laptop: file(relativePath: { eq: "laptop.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1200) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-  }
-`;
+// export const query = graphql`
+//   query {
+//     laptop: file(relativePath: { eq: "images/laptop.jpg" }) {
+//       childImageSharp {
+//         sizes(maxWidth: 2000, traceSVG: { color: "#d3d3d3" }) {
+//           ...GatsbyImageSharpSizes_tracedSVG
+//         }
+//       }
+//     }
+//   }
+// `;

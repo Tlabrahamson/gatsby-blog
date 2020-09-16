@@ -1,6 +1,6 @@
 const siteMetadata = {
-  title: `A Developer Called Tim`,
-  description: `This is my coding blog where I write about my coding journey`,
+  title: `A Dev Called Tim`,
+  description: `Web Dev`,
   image: `/favicon.svg`,
   siteUrl: `https://timabrahamson.dev`,
   siteLanguage: `en-US`,
@@ -36,6 +36,13 @@ module.exports = {
             }
           }
         ]
+      }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/pages`,
+        name: `pages`
       }
     },
     {

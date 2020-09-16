@@ -8,7 +8,7 @@ export const GearLayout = props => {
         <h2>{props.gearName}</h2>
         <p>{props.gearDescription}</p>
       </section>
-      <Img image={props.gearImage} alt="A piece of rad gear." />
+      <Img fluid={props.gearImage} alt="A piece of rad gear." />
     </article>
   );
 };
