@@ -1,7 +1,6 @@
 import { Link } from "gatsby";
 import React from "react";
 import styled from "styled-components";
-// import Logo from "../assets/Logo.png";
 import { Logo } from "../components/Logo";
 
 const HeaderStyles = styled.header`
@@ -13,18 +12,11 @@ const HeaderStyles = styled.header`
   background: #3a5772;
 `;
 
-// const LogoImg = styled.img`
-//   width: 100%;
-//   max-width: 300px;
-// `;
-
 const NavUl = styled.ul`
   display: flex;
   padding: 1rem 0;
   width: 100%;
   justify-content: space-between;
-  // border-top: solid 2px #1d2b39;
-  // border-bottom: solid 2px #1d2b39;
 `;
 
 const NavLi = styled.li`
@@ -32,12 +24,12 @@ const NavLi = styled.li`
   font-family: sans-serif;
 
   a {
-    color: #fff;
     transition: all 0.4s ease;
     font-family: "Varela", sans-serif;
-    background: #1d2b39;
-    padding: 0.5rem;
     border-radius: 10px;
+    color: #fff;
+    background: #1d2b39;
+    padding: 0.5rem 1rem;
     &:hover {
       color: #1d2b39;
       background: #fff;
@@ -52,7 +44,6 @@ const NavLi = styled.li`
 export const Header = () => (
   <HeaderStyles>
     <Link to="/">
-      {/* <LogoImg src={Logo} alt="Tim Abrahamson" /> */}
       <Logo />
     </Link>
 

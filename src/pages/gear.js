@@ -4,12 +4,36 @@ import { Layout } from "../components/Layout";
 import { GearLayout } from "../components/GearLayout";
 import SEO from "react-seo-component";
 import { useSiteMetadata } from "../hooks/useSiteMetadata";
+// Images
+import Chap from "../assets/chap.jpg";
+import Keyboard from "../assets/keyboard.jpg";
+import Laptop from "../assets/laptop.jpg";
+import Mic from "../assets/mic.jpg";
+import Mouse from "../assets/mouse.jpg";
 
 const GearWrapper = styled.main`
   display: grid;
   grid-template-columns: 1fr;
   padding: 2rem 2rem;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+  article {
+    display: grid;
+    grid-template-columns: 1fr 50%;
+    grid-column-gap: 0.5rem;
+    align-items: center;
+    padding: 2rem 0;
+  }
+
+  @media (max-width: 800px) {
+    article {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  img {
+    width: 100%;
+  }
 `;
 
 export default ({ data }) => {
@@ -35,35 +59,43 @@ export default ({ data }) => {
         twitterUsername={twitterUsername}
       />
       <GearWrapper>
-        <h1>What Am I Working On You Ask?</h1>
+        <h1>What Am I Working With You Ask?</h1>
         <p>
-          Alright, so you probably don't actually care. Just in case, this is a
-          list of gear that I am currently working with.
+          Alright, so you probably aren't actually interested. Just in case:
         </p>
         &nbsp;
         <GearLayout
-          gearName="My Laptop"
-          gearDescription="A 2012 Macbook Pro. A lovely piece of hardware."
+          gearName="Apple MacBook Pro 13.3 Laptop LED Intel i5 3210M 2.5GHz 4GB 500GB"
+          gearDescription="A lovely piece of hardware from 2012. I bought it refurbished from Ebay and tossed a SSD as well as 16GB of RAM in it. I only wish it had a slightly better processor and a dedicated GPU."
+          gearImage={Laptop}
         />
         <GearLayout
-          gearName="My Mouse"
-          gearDescription="An Apple Magic Mouse 2."
+          gearName="Apple Magic Mouse 2"
+          gearDescription="Unlike the Magic Mouse 1, this one can be charged. No batteries required. It was on sale."
+          gearImage={Mouse}
         />
         <GearLayout
-          gearName="My Keyboard"
-          gearDescription="An Apple Bluetooth Wireless Mini Keyboard. I plan on building my own mechanical keyboard soon."
+          gearName="Apple Bluetooth Wireless Mini Keyboard"
+          gearDescription="I plan on building my own mechanical keyboard soon. This thing takes AA batteries. Meh."
+          gearImage={Keyboard}
         />
         <GearLayout
-          gearName="My Microphone"
-          gearDescription="A Blue Snowball iCE USB Mic."
+          gearName="A Blue Snowball iCE USB Mic"
+          gearDescription="This was my old gaming microphone. I'm using it for recording until I can get one that plugs directly into my camera."
+          gearImage={Mic}
         />
         <GearLayout
-          gearName="My Headphones"
-          gearDescription="Sony WH-1000XM3 Noise Cancelling Headset."
+          gearName="Sony WH-1000XM3 Noise Cancelling Headset"
+          gearDescription="These things were $$$ but they cancel my noise and I love them."
         />
         <GearLayout
-          gearName="My Desk and Chair"
-          gearDescription="A fold out table as a desk and a fold out chair. The envy of every developer!"
+          gearName="A fold out table as a desk and a fold out chair"
+          gearDescription="Purchased from Walmart. Truly the envy of every developer!"
+        />
+        <GearLayout
+          gearName="Burt's Bees Ultra Conditioning Moisturizing Lip Balm"
+          gearDescription="It's rich in butters and oils that hydrate and condition dry lips."
+          gearImage={Chap}
         />
       </GearWrapper>
     </Layout>

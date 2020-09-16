@@ -29,7 +29,6 @@ p {
 
 a {
     text-decoration: none;
-    font-size: 24px;
 }
 
 li {
