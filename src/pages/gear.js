@@ -42,9 +42,54 @@ export default () => {
     twitterUsername
   } = useSiteMetadata();
 
+  // This is a bit much.
   const data = useStaticQuery(graphql`
     query MyQuery {
-      file(relativePath: { eq: "laptop.jpg" }) {
+      laptop: file(relativePath: { eq: "laptop.jpg" }) {
+        childImageSharp {
+          fluid {
+            aspectRatio
+            base64
+            sizes
+            src
+            srcSet
+          }
+        }
+      }
+      mouse: file(relativePath: { eq: "mouse.jpg" }) {
+        childImageSharp {
+          fluid {
+            aspectRatio
+            base64
+            sizes
+            src
+            srcSet
+          }
+        }
+      }
+      keyboard: file(relativePath: { eq: "keyboard.jpg" }) {
+        childImageSharp {
+          fluid {
+            aspectRatio
+            base64
+            sizes
+            src
+            srcSet
+          }
+        }
+      }
+      mic: file(relativePath: { eq: "mic.jpg" }) {
+        childImageSharp {
+          fluid {
+            aspectRatio
+            base64
+            sizes
+            src
+            srcSet
+          }
+        }
+      }
+      chap: file(relativePath: { eq: "chap.jpg" }) {
         childImageSharp {
           fluid {
             aspectRatio
@@ -78,22 +123,22 @@ export default () => {
         <GearLayout
           gearName="Apple MacBook Pro 13.3 Laptop LED Intel i5 3210M 2.5GHz 4GB 500GB"
           gearDescription="A lovely piece of hardware from 2012. I bought it refurbished from Ebay and tossed a SSD as well as 16GB of RAM in it. I only wish it had a slightly better processor and a dedicated GPU."
-          gearImage={data.file.childImageSharp.fluid}
+          gearImage={data.laptop.childImageSharp.fluid}
         />
         <GearLayout
           gearName="Apple Magic Mouse 2"
           gearDescription="Unlike the Magic Mouse 1, this one can be charged. No batteries required. It was on sale."
-          // gearImage={data.mouse}
+          gearImage={data.mouse.childImageSharp.fluid}
         />
         <GearLayout
           gearName="Apple Bluetooth Wireless Mini Keyboard"
           gearDescription="I plan on building my own mechanical keyboard soon. This thing takes AA batteries. Meh."
-          // gearImage={data.keyboard}
+          gearImage={data.keyboard.childImageSharp.fluid}
         />
         <GearLayout
           gearName="A Blue Snowball iCE USB Mic"
           gearDescription="This was my old gaming microphone. I'm using it for recording until I can get one that plugs directly into my camera."
-          // gearImage={data.mic}
+          gearImage={data.mic.childImageSharp.fluid}
         />
         <GearLayout
           gearName="Sony WH-1000XM3 Noise Cancelling Headset"
@@ -106,22 +151,9 @@ export default () => {
         <GearLayout
           gearName="Burt's Bees Ultra Conditioning Moisturizing Lip Balm"
           gearDescription="It's rich in butters and oils that hydrate and condition dry lips."
-          // gearImage={data.chap}
+          gearImage={data.chap.childImageSharp.fluid}
         />
       </GearWrapper>
     </Layout>
   );
 };
-
-// Ehhh
-// export const query = graphql`
-//   query {
-//     laptop: file(relativePath: { eq: "images/laptop.jpg" }) {
-//       childImageSharp {
-//         sizes(maxWidth: 2000, traceSVG: { color: "#d3d3d3" }) {
-//           ...GatsbyImageSharpSizes_tracedSVG
-//         }
-//       }
-//     }
-//   }
-// `;
