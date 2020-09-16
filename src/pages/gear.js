@@ -4,12 +4,6 @@ import { Layout } from "../components/Layout";
 import { GearLayout } from "../components/GearLayout";
 import SEO from "react-seo-component";
 import { useSiteMetadata } from "../hooks/useSiteMetadata";
-// Images
-import Chap from "../assets/chap.jpg";
-import Keyboard from "../assets/keyboard.jpg";
-import Laptop from "../assets/laptop.jpg";
-import Mic from "../assets/mic.jpg";
-import Mouse from "../assets/mouse.jpg";
 
 const GearWrapper = styled.main`
   display: grid;
@@ -67,22 +61,22 @@ export default ({ data }) => {
         <GearLayout
           gearName="Apple MacBook Pro 13.3 Laptop LED Intel i5 3210M 2.5GHz 4GB 500GB"
           gearDescription="A lovely piece of hardware from 2012. I bought it refurbished from Ebay and tossed a SSD as well as 16GB of RAM in it. I only wish it had a slightly better processor and a dedicated GPU."
-          gearImage={Laptop}
+          gearImage={data.laptop}
         />
         <GearLayout
           gearName="Apple Magic Mouse 2"
           gearDescription="Unlike the Magic Mouse 1, this one can be charged. No batteries required. It was on sale."
-          gearImage={Mouse}
+          gearImage={data.mouse}
         />
         <GearLayout
           gearName="Apple Bluetooth Wireless Mini Keyboard"
           gearDescription="I plan on building my own mechanical keyboard soon. This thing takes AA batteries. Meh."
-          gearImage={Keyboard}
+          gearImage={data.keyboard}
         />
         <GearLayout
           gearName="A Blue Snowball iCE USB Mic"
           gearDescription="This was my old gaming microphone. I'm using it for recording until I can get one that plugs directly into my camera."
-          gearImage={Mic}
+          gearImage={data.mic}
         />
         <GearLayout
           gearName="Sony WH-1000XM3 Noise Cancelling Headset"
@@ -95,9 +89,50 @@ export default ({ data }) => {
         <GearLayout
           gearName="Burt's Bees Ultra Conditioning Moisturizing Lip Balm"
           gearDescription="It's rich in butters and oils that hydrate and condition dry lips."
-          gearImage={Chap}
+          gearImage={data.chap}
         />
       </GearWrapper>
     </Layout>
   );
 };
+
+// Ehhh
+export const query = graphql`
+  query {
+    chap: file(relativePath: { eq: "chap.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1200) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    keyboard: file(relativePath: { eq: "keyboard.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1200) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    laptop: file(relativePath: { eq: "laptop.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1200) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    mic: file(relativePath: { eq: "mic.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1200) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    mouse: file(relativePath: { eq: "mouse.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1200) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`;

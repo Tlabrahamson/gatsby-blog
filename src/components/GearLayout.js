@@ -1,4 +1,5 @@
 import React from "react";
+import Img from "gatsby-image";
 
 export const GearLayout = props => {
   return (
@@ -7,7 +8,7 @@ export const GearLayout = props => {
         <h2>{props.gearName}</h2>
         <p>{props.gearDescription}</p>
       </section>
-      <img src={props.gearImage} alt="A piece of rad gear." />
+      <Img image={props.gearImage} alt="A piece of rad gear." />
     </article>
   );
 };
