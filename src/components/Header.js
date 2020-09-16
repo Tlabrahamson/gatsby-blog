@@ -23,6 +23,10 @@ const NavLi = styled.li`
   font-size: 24px;
   font-family: sans-serif;
 
+  @media (max-width: 800px) {
+    font-size: 16px;
+  }
+
   a {
     transition: all 0.4s ease;
     font-family: "Varela", sans-serif;

@@ -67,17 +67,17 @@ export default ({ data }) => {
         <GearLayout
           gearName="Apple Magic Mouse 2"
           gearDescription="Unlike the Magic Mouse 1, this one can be charged. No batteries required. It was on sale."
-          gearImage={data.mouse}
+          // gearImage={data.mouse}
         />
         <GearLayout
           gearName="Apple Bluetooth Wireless Mini Keyboard"
           gearDescription="I plan on building my own mechanical keyboard soon. This thing takes AA batteries. Meh."
-          gearImage={data.keyboard}
+          // gearImage={data.keyboard}
         />
         <GearLayout
           gearName="A Blue Snowball iCE USB Mic"
           gearDescription="This was my old gaming microphone. I'm using it for recording until I can get one that plugs directly into my camera."
-          gearImage={data.mic}
+          // gearImage={data.mic}
         />
         <GearLayout
           gearName="Sony WH-1000XM3 Noise Cancelling Headset"
@@ -90,7 +90,7 @@ export default ({ data }) => {
         <GearLayout
           gearName="Burt's Bees Ultra Conditioning Moisturizing Lip Balm"
           gearDescription="It's rich in butters and oils that hydrate and condition dry lips."
-          gearImage={data.chap}
+          // gearImage={data.chap}
         />
       </GearWrapper>
     </Layout>
@@ -100,35 +100,7 @@ export default ({ data }) => {
 // Ehhh
 export const query = graphql`
   query {
-    chap: file(relativePath: { eq: "chap.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1200) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    keyboard: file(relativePath: { eq: "keyboard.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1200) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
     laptop: file(relativePath: { eq: "laptop.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1200) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    mic: file(relativePath: { eq: "mic.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1200) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    mouse: file(relativePath: { eq: "mouse.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 1200) {
           ...GatsbyImageSharpFluid
