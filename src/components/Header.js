@@ -20,7 +20,7 @@ const NavUl = styled.ul`
 `;
 
 const NavLi = styled.li`
-  font-size: 18px;
+  font-size: 24px;
   font-family: sans-serif;
 
   a {
