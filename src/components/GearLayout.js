@@ -5,7 +5,7 @@ export const GearLayout = props => {
   return (
     <article>
       <section>
-        <h2>{props.gearName}</h2>
+        <h3>{props.gearName}</h3>
         <p>{props.gearDescription}</p>
       </section>
       <Img fluid={props.gearImage} alt="A piece of rad gear." />

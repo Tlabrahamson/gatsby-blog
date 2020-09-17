@@ -12,6 +12,12 @@ const GearWrapper = styled.main`
   padding: 2rem 2rem;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 
+  li {
+    // list-style: disc;
+    font-family: "Open Sans", sans-serif;
+    padding: 1rem 0;
+  }
+
   article {
     display: grid;
     grid-template-columns: 1fr 50%;
@@ -120,6 +126,24 @@ export default () => {
           Alright, so you probably aren't actually interested. Just in case:
         </p>
         &nbsp;
+        <h2>Software</h2>
+        <ul>
+          <li>
+            <strong>Visual Studio Code</strong> - Text Editor/Main Squeeze
+          </li>
+          <li>
+            <strong>Mozilla Firefox</strong> - My go to browser
+          </li>
+          <li>
+            <strong>Figma</strong> - My favorite design App
+          </li>
+          <li>
+            <strong>iTerm2</strong> - The sequel to iTerm. Terminal
+          </li>
+          <li>
+            <strong>ImageOptim</strong> - For optimizing images
+          </li>
+        </ul>
         <GearLayout
           gearName="Apple MacBook Pro 13.3 Laptop LED Intel i5 3210M 2.5GHz 4GB 500GB"
           gearDescription="A lovely piece of hardware from 2012. I bought it refurbished from Ebay and tossed a SSD as well as 16GB of RAM in it. I only wish it had a slightly better processor and a dedicated GPU."
