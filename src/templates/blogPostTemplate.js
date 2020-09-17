@@ -8,7 +8,8 @@ import { Layout } from "../components/Layout";
 import { useSiteMetadata } from "../hooks/useSiteMetadata";
 
 const Image = styled(Img)`
-  max-width: 800px;
+  max-width: 1200px;
+  max-height: 500px;
 `;
 
 const PostWrapper = styled.div`

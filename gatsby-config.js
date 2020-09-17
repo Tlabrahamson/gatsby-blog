@@ -16,6 +16,7 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-twitter`,
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
@@ -29,6 +30,13 @@ module.exports = {
           }
         ],
         plugins: [
+          {
+            resolve: `gatsby-plugin-google-fonts`,
+            options: {
+              fonts: [`Proza Libre`, `Open Sans\:300,400`],
+              display: "swap"
+            }
+          },
           {
             resolve: `gatsby-remark-images`,
             options: {

@@ -10,6 +10,7 @@ const HeaderStyles = styled.header`
   justify-content: space-between;
   padding: 1rem 2rem;
   background: #3a5772;
+  border-bottom: ridge 10px #1d2b39;
 `;
 
 const NavUl = styled.ul`
@@ -21,7 +22,6 @@ const NavUl = styled.ul`
 
 const NavLi = styled.li`
   font-size: 24px;
-  font-family: sans-serif;
 
   @media (max-width: 800px) {
     font-size: 16px;
@@ -29,7 +29,7 @@ const NavLi = styled.li`
 
   a {
     transition: all 0.4s ease;
-    font-family: "Varela", sans-serif;
+    font-family: "Proza Libre", sans-serif;
     border-radius: 10px;
     color: #fff;
     background: #1d2b39;

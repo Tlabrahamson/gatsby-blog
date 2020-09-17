@@ -13,16 +13,20 @@ main {
 
 nav {
     width: 100%;
-    max-width: 800px;
+    max-width: 1200px;
 }
 
 h1,h2,h3,h4,h5,h6 {
-    font-family: 'Work Sans', sans-serif;
+    font-family: 'Proza Libre', sans-serif;
     line-height: 1.5;
 }
 
+h1 {
+    font-size: 36px;
+}
+
 p {
-    font-family: 'Varela', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     line-height: 1.7;
     font-size: 18px;
 }

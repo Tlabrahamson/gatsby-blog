@@ -9,11 +9,14 @@ import { useSiteMetadata } from "../hooks/useSiteMetadata";
 const BlogWrapper = styled.main`
   display: grid;
   grid-template-columns: 1fr;
-  padding: 2rem 2rem;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin-bottom: 2rem;
 `;
 
-const PostWrapper = styled.div``;
+const PostWrapper = styled.div`
+  padding: 2rem 2rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin-bottom: 4rem;
+`;
 
 const PostContent = styled.div`
   display: grid;
@@ -26,7 +29,6 @@ const PostContent = styled.div`
 
 const PostDate = styled.p`
   color: #000;
-  font-family: sans-serif;
   font-size: 12px;
   font-weight: 600;
 `;
@@ -70,7 +72,6 @@ export default ({ data }) => {
                 <p>{excerpt}</p>
               </div>
             </PostContent>
-            <hr />
           </PostWrapper>
         ))}
       </BlogWrapper>

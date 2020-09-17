@@ -7,7 +7,7 @@ import { Footer } from "./Footer";
 import GlobalStyles from "./styles/GlobalStyles";
 
 const AppStyles = styled.main`
-  width: 800px;
+  width: 1200px;
   max-width: 100%;
   margin: 0 auto;
   background: #fff;
