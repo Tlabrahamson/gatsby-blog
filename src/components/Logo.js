@@ -112,7 +112,7 @@ export const Logo = () => {
         xmlns="http://www.w3.org/2000/svg"
       >
         <g id="Logo">
-          <circle id="Ellipse 8" cx="378" cy="332" r="324" fill="#494949" />
+          <circle id="Ellipse 8" cx="378" cy="332" r="324" fill="#243647" />
           <circle id="Ellipse 6" cx="378" cy="332" r="307" fill="#1D2B39" />
           <path
             id="Chair"

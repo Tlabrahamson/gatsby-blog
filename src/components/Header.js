@@ -9,7 +9,7 @@ const HeaderStyles = styled.header`
   align-items: center;
   justify-content: space-between;
   padding: 1rem 2rem;
-  background: #3a5772;
+  background: linear-gradient(#536c84, #3a5772);
   border-bottom: ridge 10px #1d2b39;
 `;
 
@@ -21,15 +21,15 @@ const NavUl = styled.ul`
 `;
 
 const NavLi = styled.li`
-  font-size: 24px;
+  font-size: 32px;
 
   @media (max-width: 800px) {
-    font-size: 16px;
+    font-size: 24px;
   }
 
   a {
     transition: all 0.4s ease;
-    font-family: "Proza Libre", sans-serif;
+    font-family: "Pompiere", cursive;
     border-radius: 10px;
     color: #fff;
     background: #1d2b39;

@@ -50,7 +50,7 @@ export default () => {
 
   // This is a bit much.
   const data = useStaticQuery(graphql`
-    query MyQuery {
+    query gearQuery {
       laptop: file(relativePath: { eq: "laptop.jpg" }) {
         childImageSharp {
           fluid {
