@@ -92,6 +92,7 @@ export default () => {
           </p>
         </section>
         <section>
+          <h2>A Walk in the Woods</h2>
           <p>
             For 5 1/2 months I backpacked from Maine to Georgia. I watched the
             sun rise, the sun set and the Fall colors change before my eyes.
@@ -106,6 +107,7 @@ export default () => {
           alt="A placeholder for query test"
         />
         <section>
+          <h2>My Return to the Real World</h2>
           <p>
             I slipped back into the sandwich making life because it was like
             riding a bike. It wasn't the same though. I knew I could do better
@@ -117,6 +119,7 @@ export default () => {
           </p>
         </section>
         <section>
+          <h2>Learning the Ropes</h2>
           <p>
             The course was an excellent push to learn as much as possible in my
             free time. Towards the end of the course, I started applying for

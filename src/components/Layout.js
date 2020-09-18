@@ -13,7 +13,7 @@ const AppStyles = styled.main`
   background: #eee;
   padding: 4rem 0;
   position: relative;
-  min-height: 100vh;
+  min-height: 70vh;
 `;
 
 export const Layout = ({ children }) => {
