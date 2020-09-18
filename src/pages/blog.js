@@ -16,6 +16,7 @@ const PostWrapper = styled.div`
   padding: 2rem 2rem;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin-bottom: 4rem;
+  background: #fff;
 `;
 
 const PostContent = styled.div`

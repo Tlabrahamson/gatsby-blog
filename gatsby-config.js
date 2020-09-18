@@ -33,7 +33,7 @@ module.exports = {
           {
             resolve: `gatsby-plugin-google-fonts`,
             options: {
-              fonts: [`Pompiere`, `Proza Libre`, `Open Sans\:300,400`],
+              fonts: [`Pompiere`, `Proza Libre`, `Open Sans`],
               display: "swap"
             }
           },

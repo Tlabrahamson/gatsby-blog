@@ -11,6 +11,7 @@ const GearWrapper = styled.main`
   grid-template-columns: 1fr;
   padding: 2rem 2rem;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background: #fff;
 
   li {
     // list-style: disc;

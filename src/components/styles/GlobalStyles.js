@@ -7,6 +7,10 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
 }
 
+body {
+    background: #eee;
+}
+
 main {
     position: relative;
 }

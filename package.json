@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-blog",
+  "name": "tim-blog",
   "version": "1.0.0",
-  "description": "",
+  "description": "Yaaah",
   "main": "index.js",
   "scripts": {
     "dev": "gatsby develop -p 9988 -o",
@@ -9,7 +9,7 @@
     "serve": "gatsby serve -p 9500 -o"
   },
   "keywords": [],
-  "author": "",
+  "author": "Tim Abrahamson",
   "license": "ISC",
   "dependencies": {
     "@mdx-js/mdx": "^1.6.16",
