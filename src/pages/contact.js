@@ -55,8 +55,8 @@ export default ({ data }) => {
           >
             profile
           </Link>{" "}
-          could be good for that kind of thing. I remove connections that spam
-          non business related stuffs.
+          could be good for that kind of thing. I remove connections that drop
+          garbage posts or spam.
         </p>
         &nbsp;
         <h2>Email</h2>

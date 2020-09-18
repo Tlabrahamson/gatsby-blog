@@ -36,9 +36,10 @@ export default ({ data }) => {
       <IndexWrapper>
         <h1>Hey! It seems you've encountered my blog.</h1>
         <p>
-          I'm Tim. My goal here is to type up entries that are helpful for
-          developers of all skill levels. I hope to also include a video to go
-          along with every blog just in case you don't care much for reading.{" "}
+          I'm Tim. I am a web developer who loves working with JavaScript. My
+          goal with this blog is to add entries that are helpful for developers
+          of all skill levels. I may also include a video to go along with every
+          blog just in case you don't care much for reading.{" "}
           <span role="img" aria-label="This is a thumbs up emoji">
             👍
           </span>

@@ -13,7 +13,6 @@ const AboutWrapper = styled.main`
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 
   img {
-    width: 50%;
     padding-bottom: 2rem;
   }
 
@@ -36,6 +35,17 @@ export default () => {
   const data = useStaticQuery(graphql`
     query aboutQuery {
       timbo: file(relativePath: { eq: "timbo.jpg" }) {
+        childImageSharp {
+          fluid {
+            aspectRatio
+            base64
+            sizes
+            src
+            srcSet
+          }
+        }
+      }
+      thru: file(relativePath: { eq: "thru.jpg" }) {
         childImageSharp {
           fluid {
             aspectRatio
@@ -72,10 +82,52 @@ export default () => {
         <section>
           <h1>A lot About Myself</h1>
           <p>
-            I'm Tim Abrahamson. I'm a web developer based in Birmingham, AL. I
-            got into coding in high school where I took a couple Java courses.
-            After graduating, I started working at Jimmy John's where I became a
-            sandwich master.
+            I'm a web developer based in Birmingham, AL. I got into coding in
+            high school where I took a couple Java courses. I loved it but
+            didn't have college aspirations. After graduating, I started working
+            at Jimmy John's where I made a lot of sandwiches. Making sandwiches
+            day in and day out triggered a primal reflex to escape civilization
+            and nomad it up. The solution? Thru hike the Appalachain Trail!
+          </p>
+        </section>
+        <section>
+          <p>
+            For 5 1/2 months I backpacked from Maine to Georgia. I watched the
+            sun rise, the sun set and the Fall colors change before my eyes.
+            There were certainly hardships like waking up every morning and
+            hiking 15 to 20 miles a day, but there were rewards at the top of
+            every mountain. The day I completed the hike, my body was mush but I
+            was ready to get back to a more familiar routine.
+          </p>
+        </section>
+        <Img
+          fluid={data.thru.childImageSharp.fluid}
+          alt="A placeholder for query test"
+        />
+        <section>
+          <p>
+            I slipped back into the sandwich making life because it was like
+            riding a bike. It wasn't the same though. I knew I could do better
+            if I tried harder. The tipping point was when I started a family. I
+            was blessed with adorable twin boys and it was time to do something
+            more. I started learning web development through freecodecamp.org.
+            My local community college began offering a 19 week full stack
+            development course and I opted in immediately.
+          </p>
+        </section>
+        <section>
+          <p>
+            The course was an excellent push to learn as much as possible in my
+            free time. Towards the end of the course, I started applying for
+            jobs and wound up getting an internship at the amazing Kinetic
+            Communications in Birmingham. The internship expired in 3 months but
+            I obtained a wealth of knowledge.
+          </p>
+        </section>
+        <section>
+          <p>
+            Aaaaaand that brings us to today. I do occasional freelance work and
+            I am looking for my dream company.
           </p>
         </section>
       </AboutWrapper>
