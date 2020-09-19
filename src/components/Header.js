@@ -9,8 +9,8 @@ const HeaderStyles = styled.header`
   align-items: center;
   justify-content: space-between;
   padding: 1rem 2rem;
-  background: linear-gradient(#536c84, #3a5772);
-  border-bottom: ridge 10px #1d2b39;
+  background: #232931;
+  border-bottom: solid 10px #393e46;
 `;
 
 const NavUl = styled.ul`
@@ -31,8 +31,8 @@ const NavLi = styled.li`
     transition: all 0.4s ease;
     font-family: "Pompiere", cursive;
     border-radius: 10px;
-    color: #fff;
-    background: #1d2b39;
+    color: #232931;
+    background: #4ecca3;
     padding: 0.5rem 1rem;
     &:hover {
       color: #1d2b39;

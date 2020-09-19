@@ -3,7 +3,7 @@ import React from "react";
 import Code from "./src/components/Code";
 
 const components = {
-  h2: ({ children }) => <h2 style={{ color: "#3a5772" }}>{children}</h2>,
+  h2: ({ children }) => <h2 style={{ color: "#000" }}>{children}</h2>,
   "p.inlineCode": props => (
     <code style={{ backgroundColor: "#eee" }} {...props} />
   ),

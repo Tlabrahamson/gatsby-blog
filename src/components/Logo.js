@@ -112,8 +112,8 @@ export const Logo = () => {
         xmlns="http://www.w3.org/2000/svg"
       >
         <g id="Logo">
-          <circle id="Ellipse 8" cx="378" cy="332" r="324" fill="#243647" />
-          <circle id="Ellipse 6" cx="378" cy="332" r="307" fill="#1D2B39" />
+          {/* <circle id="Ellipse 8" cx="378" cy="332" r="324" fill="#232931" />
+          <circle id="Ellipse 6" cx="378" cy="332" r="307" fill="#232931" /> */}
           <path
             id="Chair"
             d="M174.71 231.808C238.71 174.545 303.833 207.948 328.394 231.808V509.703L166.289 505.492C142.429 438.124 110.71 289.071 174.71 231.808Z"

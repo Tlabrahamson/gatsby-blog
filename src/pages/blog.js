@@ -10,6 +10,10 @@ const BlogWrapper = styled.main`
   display: grid;
   grid-template-columns: 1fr;
   margin-bottom: -4rem;
+
+  h1 {
+    color: #1d2b39;
+  }
 `;
 
 const PostWrapper = styled.div`
