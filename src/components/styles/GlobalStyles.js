@@ -23,11 +23,11 @@ nav {
 h1,h2,h3,h4,h5,h6 {
     font-family: 'Proza Libre', sans-serif;
     line-height: 1.5;
-    color: #232931;
 }
 
 h1 {
     font-size: 36px;
+    // color: #232931;
 }
 
 p {

@@ -10,7 +10,7 @@ const HeaderStyles = styled.header`
   justify-content: space-between;
   padding: 1rem 2rem;
   background: #232931;
-  border-bottom: solid 10px #393e46;
+  border-bottom: double 8px #393e46;
 `;
 
 const NavUl = styled.ul`
@@ -28,19 +28,20 @@ const NavLi = styled.li`
   }
 
   a {
-    transition: all 0.4s ease;
+    border: solid 2px #393e46;
+    transition: all 0.2s ease;
     font-family: "Pompiere", cursive;
     border-radius: 10px;
     color: #232931;
     background: #4ecca3;
-    padding: 0.5rem 1rem;
+    padding: 0.25rem 0.5rem;
     &:hover {
-      color: #1d2b39;
-      background: #fff;
+      color: #393e46;
+      background: #44b38f;
     }
     &:active {
-      color: #1d2b39;
-      background: #fff;
+      color: #fff;
+      background: #318066;
     }
   }
 `;
