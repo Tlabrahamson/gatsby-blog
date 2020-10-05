@@ -123,8 +123,8 @@ export const Logo = () => {
             <path
               d="M370.859 391.152C370.76 307.925 426.562 329.435 582.484 318.738C585.853 413.135 575.682 349.243 498.013 493.427C321.339 473.329 370.943 461.632 370.859 391.152Z"
               stroke="white"
-              stroke-opacity="0.5"
-              stroke-width="12"
+              strokeOpacity="0.5"
+              strokeWidth="12"
             />
           </g>
           <path
@@ -168,13 +168,13 @@ export const Logo = () => {
               id="mouth"
               d="M321.202 281.715L394.744 300.035L387.051 306.797"
               stroke="#C69494"
-              stroke-width="2"
+              strokeWidth="2"
             />
             <path
               id="nose"
               d="M379.405 274.518C386.081 280.193 386.878 283.515 379.928 289.836"
               stroke="#C69494"
-              stroke-width="2"
+              strokeWidth="2"
             />
           </g>
           <g id="Laptop">
@@ -239,15 +239,15 @@ export const Logo = () => {
           />
           <path
             id="Subtract"
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M474.767 409.381C473.044 413.585 472.034 418.695 472.034 424.207C472.034 438.546 478.87 450.171 487.304 450.171C490.546 450.171 493.551 448.453 496.024 445.524C493.265 452.256 488.678 456.661 483.486 456.661C475.053 456.661 468.216 445.037 468.216 430.698C468.216 421.87 470.807 414.072 474.767 409.381Z"
             fill="white"
           />
           <g id="Subtract_2" filter="url(#filter2_f)">
             <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd"
+              clipRule="evenodd"
               d="M474.767 409.381C473.044 413.585 472.034 418.695 472.034 424.207C472.034 438.546 478.87 450.171 487.304 450.171C490.546 450.171 493.551 448.453 496.024 445.524C493.265 452.256 488.678 456.661 483.486 456.661C475.053 456.661 468.216 445.037 468.216 430.698C468.216 421.87 470.807 414.072 474.767 409.381Z"
               fill="white"
             />
@@ -271,9 +271,9 @@ export const Logo = () => {
             width="384.418"
             height="367.591"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feBlend
               mode="normal"
               in="SourceGraphic"
@@ -292,9 +292,9 @@ export const Logo = () => {
             width="98.8699"
             height="104.641"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feColorMatrix
               in="SourceAlpha"
               type="matrix"
@@ -325,9 +325,9 @@ export const Logo = () => {
             width="31.8077"
             height="51.2803"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feBlend
               mode="normal"
               in="SourceGraphic"

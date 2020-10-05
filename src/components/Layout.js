@@ -11,7 +11,7 @@ const AppStyles = styled.main`
   max-width: 100%;
   margin: 0 auto;
   background: #eee;
-  padding: 4rem 0;
+  padding: 2rem 0;
   position: relative;
   min-height: 70vh;
 `;
