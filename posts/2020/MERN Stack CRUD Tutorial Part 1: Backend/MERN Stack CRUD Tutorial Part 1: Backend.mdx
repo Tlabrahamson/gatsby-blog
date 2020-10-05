@@ -1,0 +1,274 @@
+---
+title: MERN Stack CRUD Tutorial Part 1: Backend
+date: 2020-09-13
+published: true
+cover: ./cover.jpg
+coverCredit: Chris Ried on Unsplash
+---
+
+MERN Stack CRUD Tutorial
+
+Prerequisites: I highly recommend having knowledge of JavaScript fundamentals as well as a bit of node.js and react.js experience. It may be helpful to go ahead and install postman (or another REST client like Insomnia) to test the API routes as we go. Also have a terminal ready to install project dependencies. I set up my projects with iTerm2 and use the console in VS Code to do the rest.
+
+First thing’s first! Lets go ahead and open your terminal of choice (I use iTerm2) and create-react-app “job-lister”. This will give us a working react site that we will be building on in the second part of this tutorial. 
+
+Now that we have the project folder ready to go, open up your text editor and open up the project folder you’ve just created. Let’s create a new folder in the root called backend. Inside of the root folder, we need to create an index.js. Now we will open the console in VS Code and type cd backend to jump into the folder. Then we will type npm init to get a package.json file going. You can edit the fields in package.json at any time so you can press enter until the terminal stops prompting you, or fill it out to your liking. Next, let’s install all of the backend dependencies that we are going to need. We will be adding express, mongoose, nodemon and dotenv. 
+
+In the terminal, let’s type the commands:
+
+npm install express
+
+npm install mongoose
+
+npm install nodemon
+
+nom install dotenv
+
+Express is a node.js framework that makes setting up an API quite simple. Mongoose is an object modeler that allows you to create simple data objects or schemas that makes operations to and from MongoDB a bit more streamlined. Nodemon is a dev tool that monitors for any changes to your backend code and automatically restarts the server to reflect said changes. Dotenv allows you to store environment variables that you want to keep away from the general public (such as database login information or API keys) in a .env file that can be withheld from GitHub by adding ti to your .gitignore file. If none of that makes sense, hopefully it will soon!
+
+Good news! We can start coding now. Crack open that index.js and let’s get our express server up. We need to import express and assign it to a variable like so:
+
+const express = require(“express”);
+const app = express();
+
+Next we will listen to port 5000 with our app variable by typing out:
+
+app.listen(5000, () => console.log(“Server is up!”));
+
+To make starting up the server a bit easier to remember, we can hop into our package-json file and replace the line:
+
+“test”: “echo \”Error: no test specified\” && exit 1”
+
+with
+
+“start”: “nodemon index”
+
+This allows us to start the server in the terminal with the command npm start instead of nodemon index. (You don’t have to do this, it’s just easy to remember)
+
+If we type nom start in the terminal, it should run a few nodemon lines and then give us the console.log message that we typed above. “Server is up!“
+
+Great! That was easy enough. Now we need to connect our server to the database. We will be using MongoDB Atlas because it is great for small scale projects AND it has a free tier. So go ahead to mongodb.com and create an account if you don’t already have one. We need to start a new project from the MongoDB dashboard. Once you create and name your project, you should be redirected to a page that has a button that says Build a Cluster. We will click this and confirm the project name and then press continue. We need to make sure to select the Free Tier which is the Shared Clusters column on the far left. Click Create a cluster at the bottom and on the next page, select the server region that is closest to you. I believe the closest is selected by default. Then we can go ahead and Create the Cluster. It will take a few minutes to create. So now we wait. When the cluster is finished, we need to set up some basic security. We need to click Database Access and add a new user. Fill out the username and password fields and make sure that the user privilege is Read and Write to any database. All of the other settings should be okay by default. Make sure you remember the user info ;). Next we need to click on Network Access under Database Access and click Add IP Address. You can press add Current IP Address at the top and then confirm. Then we need to create the database! In the cluster you should see a button that says collections. Navigate to the button that says Create Database and then name your database and you can call the collection jobs. The last thing we need to do is go back to our cluster and click connect. We will click connect your application, and then copy the connection string. That is all we need to do with the MongoDB website for now. We will come back to make sure that our data is being created/updated/deleted.
+
+Now we need to connect to the database with Mongoose. First, lets add mongoose under our other declarations by typing:
+
+const mongoose = require(“mongoose”);
+
+Then, we need to use our MongoDB connection string to connect to the database.
+
+Type:
+
+mongoose.connect(“mongodb+srv://timbo:<password>@cluster0.vf9h2.mongodb.net/<dbname>?retryWrites=true&w=majority”, { useNewUrlParser: true, useUnifiedTopology: true}, () => console.log(“Connected to DB!”))
+
+In the string, you need to replace <password> with your actual password. (The angle brackets get removed too.) and replace <dbname> with your database name. To avoid deprecation warnings, we pass the options useNewUrlParser: true and useUnifiedTopology: true. Then we have an anonymous function that logs we are connected to the database.
+
+Now if you run npm start, it should launch the server and then connect to the database. NICE!
+
+You don’t want to have sensitive information like the connection string laying around for everyone to see though. That is where dotenv comes in handy. Let’s create a file in our backend folder called .env and open it up. Then let’s grab that connection string and paste it in. We can leave off the quotes. We are going to assign it to a environment variable called DB_CONNECT. You’re .env file should look something like this:
+
+DB_CONNECT = mongodb+srv://timbo:<password>@cluster0.vf9h2.mongodb.net/<dbname>?retryWrites=true&w=majority
+
+Now, in our index.js, let’s add doting at the top 
+
+const dotenv = require(“dotenv”);
+
+Above our connection line, we can add:
+
+dotenv.config();
+
+Now we can remove the connection string in our mongoose connect and replace it with:
+
+process.env.DB_CONNECT;
+
+So it should now look like this:
+
+mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true, useUnifiedTopology: true }, () => console.log(“Connected to DB!”));
+
+We should be able to connect to our database without displaying that connection string in our code now. This is useful if you plan on pushing this to git because you can now include that .env file in your .gitignore and prevent it from being pushed up.
+
+At this point we are going to go ahead and create our job model. Let’s create a new folder in backend and call it model. Inside of model let’s create a file called Job.js. In Job.js we are going to build our data object to send to the database. We need to bring in mongoose:
+
+const mongoose = require(“mongoose”);
+
+Then we need to create a job schema and export it so we can use it elsewhere:
+
+const jobSchema = new mongoose.Schema({});
+
+module.exports = mongoose.model(“Job”, jobSchema);
+
+Great! Now let’s populate our model with the sets of data that we want to work with. I think we will keep it relatively simple and do jobTitle, company, description, location, salary, contactName, contactEmail and date. Each set will have their own nested objects to specify the type of data, the minimum characters, the maximum characters and whether it is required or not. So the final code will end up looking something like this:
+
+const mongoose = require(“mongoose”);
+
+const jobSchema = new mongoose.Schema({
+	jobTitle: {
+		type: String,
+		required: true,
+		max: 255,
+		min: 6
+	},
+	company: {
+		type: String,
+		required: true,
+		max: 255,
+		min: 6
+	},
+	description: {
+		type: String,
+		required: true,
+		max: 2000,
+		min: 6
+	},
+	location: {
+		type: String,
+		required: true,
+		max: 255,
+		min: 6
+	},
+	salary: {
+		type: String,
+		required: true,
+		max: 255,
+		min: 4
+	},
+	contactName: {
+		type: String,
+		required: true,
+		max: 255,
+		min: 6
+	},
+	contactEmail: {
+		type: String,
+		required: true,
+		max: 255,
+		min: 6
+	},
+	date: {
+		type: Date,
+		default: Date.now
+	}
+});
+
+module.exports = mongoose.model(“Job”, jobSchema);
+
+All of the nested objects are required except for the date which will be added at the moment the data is accepted from the database. That should do it for our Job model. Now we get into the fun stuff! We need to create the routes that will handle the data and communicate with the database in different ways. Let’s create a routes folder in backend. Inside of the routes folder let’s create a job.js file. At the top of the file we will bring in the router and our job model like so:
+
+const router = require(“express”).Router();
+const Job = require(“../model/Job”);
+
+Now we will create our first two routes and then test them with Postman. We will create a route to get all of the jobs and a route to create a new job. The get all jobs route will look like this:
+
+router.get(“/”, async (req, res) => {
+	await Job.find()
+		.then(jobs => res.json(jobs))
+		.catch(err => res.status(400).json(“Error” + err));
+});
+
+The router that we declared at the top runs a get method which takes in an endpoint or path “/“ and a function that we pass a request and a response too. We then run the find method on our job model which returns a promise where we can return the result which will be all of the jobs. The catch will return an error if something goes wrong. Before we can test to see if this works, we need to create a job. We could manually enter the data to MongoDB but let’s just go ahead and build out the create a new job route.
+
+router.post(“/create”, async (req, res) => {
+	const job = new Job({
+		jobTitle: req.body.jobTitle,
+		company: req.body.company,
+		description: req.body.description,
+		location: req.body.location,
+		salary: req.body.salary,
+		contactName: req.body.contactName,
+		contactEmail: req.body.contactEmail
+	});
+	try {
+		const savedJob = await job.save();
+		res.send({ savedJob });
+	} catch (err) {
+		res.status(400).send(err);
+	}
+})
+
+This time we run a post method because we are sending data as opposed to receiving it. Our endpoint will be at “/create” and we are making a request and a response. we create a new instance of our Job model called job and apply the requested values to each key in the object. Then we have a try catch block that saves the job to the database assuming everything was sent over correctly. If not, it returns an error. We have a couple more things to do before we test our first routes. Let’s export our router at the bottom of our job.js file:
+
+module.exports = router;
+
+Now let’s go over to our index.js file and import our job route under our other imports:
+
+const jobRoute = require(“./routes/job”);
+
+under our database connection, we need to add:
+
+app.use(express.json());
+
+This is an express method that recognizes the incoming request object as a son object. Underneath that, let’s add our job route:
+
+app.use(“/api/job”, jobRoute);
+
+We should be able to test our first two routes with postman now! Let’s create a job first. Open a new tab and select POST. For the URL we type:
+
+http://localhost:5000/api/job/create
+
+Now we fill out the body. select the body tab under the url bar, then there is a dropdown that says text by default. We need to change that to JSON since we are dealing with JSON objects. Now we can fill out the body with our new job listing:
+
+{
+	“jobTitle”: “Backend Engineer”,
+	“company”: “Bookface”,
+	“description”: “Work fast and destroy society! We are looking for a Backend Engineer to speed up the process.”,
+	“location”: “Death Valley”,
+	“salary”: “DOE”,
+	“contactName”: “Zark Muckerburg”,
+	“contactEmail”: “zark@bookface.com”
+}
+
+If we send this off, we should receive a new saved job object that has a unique _id and a date as well as our other keys and values. NICE! Let’s add one more job. Just change the data you entered above and send it off. Now that we have two jobs listed, let’s try getting all of our jobs. Create a new tab and make sure the GET method is selected. In the url type:
+
+http://localhost:5000/api/job
+
+Then press send. It should now return both of the jobs you created! 
+
+The next route we are going to create will be to get a single job by the it’s id:
+
+router.get(“/:id”, async (req, res) => {
+	await Job.findById(req.params.id)
+		.then(job => res.json(job))
+		.catch(err => res.status(400).json(“Error: ” + err));
+});
+
+This one is simple enough. We run a get method that makes a request to a specific id path with “/:id”. Then we use the express findById method and pass in the id. Then return the job or an error. To test this route you set up a get method at:
+
+http:localhost:5000/api/job/insert job id here
+
+Remember when you were getting those _ids from the jobs you posted earlier? You can copy either one of those and paste it where I typed insert job id here. This should return that job! Nice!
+
+The next route will be the delete a single job route which will be similar to the get a single job route:
+
+router.delete(“/:id”, async (req, res) => {
+	await Job.findByIdAndDelete(req.params.id, { useFindAndModify: false })
+		.then(res.json(“Job Deleted”))
+		.catch(err => res.status(400).json(“Error: ” + err));
+});
+
+See? Pretty similar. This time we are running a delete method at the same id specific path. We then use the express findByIdAndDelete method on the id sent. This time we include a useFindAndModify: false option to avoid a depreciation error each time our server refreshes. Then we return a deleted message or an error if the request was no good. Let’s test this out. In postman you can use the same id you used to get a single job and change the get method to delete. Bye bye job.
+
+The final route we are going to set up will be an update route:
+
+router.post(“/update/:id“, async (req, res) => {
+	await Job.findByIdAndUpdate(req.params.id, { useFindAndModify: false }).then(
+		job => {
+			(job.jobTitle = req.body.jobTitle),
+			(job.company = req.body.company),
+			(job.description = req.body.description),
+			(job.location = req.body.location),
+			(job.salary = req.body.salary),
+			(job.contactName = req.body.contactName),
+			(job.contactEmail = req.body.contactEmail);			
+			job
+				.save()
+				.then(() => res.json(“Job updated!”))
+				.catch(err => res.status(400).json(“Error” + err));
+		}
+	);
+});
+
+This is kind of similar to the create route but we have a new path at “/update/:id“ to point to a specific job, then we run the express method findByIdAndUpdate taking in the requested id. (Avoiding a deprecation warning again with useFindAndModify) Then we are writing over the previous values with the new requested values. Then we save the job or return an error if something went wrong. To test, let’s grab the id of our other job or create a new one on postman and head to:
+
+http://localhost:5000/api/job/update/insert id here
+
+We want to have a post method selected and now we have to click body and make sure JSON is selected instead of text again. Now we can fill out the body with our required fields like we did creating a job and if we send it off, it should override the job’s previous values. 
+
+That wraps up the backend of this project! There is always more you can do but I want to keep this project relatively small! Part 2 will be the frontend portion where we will use react.js to display the data and to bring functionality to our routes.
