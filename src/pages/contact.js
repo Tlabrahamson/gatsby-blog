@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "gatsby";
 import styled from "styled-components";
 import { Layout } from "../components/Layout";
 import SEO from "react-seo-component";
@@ -41,21 +40,25 @@ export default ({ data }) => {
         <h2>Twitter</h2>
         <p>
           One of the best ways to reach is my Twitter handle{" "}
-          <Link target="_blank" to="https://twitter.com/TimAbrahamson1">
+          <a 
+          rel="noreferrer"
+          target="_blank" href="https://twitter.com/TimAbrahamson1">
             {twitterUsername}
-          </Link>
+          </a>
           . I should be able to respond relatively quick.
         </p>
         &nbsp;
         <h2>LinkedIn</h2>
         <p>
           Want to hire me? Just want to connect? My LinkedIn{" "}
-          <Link
+          <a
+            
+            rel="noreferrer"
             target="_blank"
-            to="https://www.linkedin.com/in/tim-abrahamson-b6a34a174/"
+            href="https://www.linkedin.com/in/tim-abrahamson-b6a34a174/"
           >
             profile
-          </Link>{" "}
+          </a>{" "}
           could be good for that kind of thing. I remove connections that drop
           garbage posts or spam.
         </p>
@@ -64,10 +67,7 @@ export default ({ data }) => {
         <p>
           If you want to email me, that is okay. I'm a bit slower to respond but
           the address is{" "}
-          <Link href="mailto: tlabrahamson@yahoo.com">
-            tlabrahamson@yahoo.com
-          </Link>
-          .
+          <a href="mailto: tlabrahamson@yahoo.com">tlabrahamson@yahoo.com</a>.
         </p>
       </ContactWrapper>
     </Layout>

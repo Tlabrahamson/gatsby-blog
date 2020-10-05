@@ -66,7 +66,7 @@ export default ({ data }) => {
             <PostContent>
               <Link to={fields.slug}>
                 {!!frontmatter.cover ? (
-                  <Img sizes={frontmatter.cover.childImageSharp.sizes} />
+                  <Img fluid={frontmatter.cover.childImageSharp.fluid} />
                 ) : null}
               </Link>
               <div>
@@ -99,8 +99,12 @@ export const query = graphql`
           cover {
             publicURL
             childImageSharp {
-              sizes(maxWidth: 2000, traceSVG: { color: "#d3d3d3" }) {
-                ...GatsbyImageSharpSizes_tracedSVG
+              fluid {
+                aspectRatio
+                base64
+                sizes
+                src
+                srcSet
               }
             }
           }
