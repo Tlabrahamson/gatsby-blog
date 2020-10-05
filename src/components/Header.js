@@ -9,8 +9,7 @@ const HeaderStyles = styled.header`
   align-items: center;
   justify-content: space-between;
   padding: 1rem 2rem;
-  margin-bottom: 2rem;
-  background: #232931;
+  background: #1d2323;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 `;
 
@@ -32,16 +31,12 @@ const NavLi = styled.li`
     transition: all 0.2s ease;
     font-family: "Pompiere", cursive;
     border-radius: 10px;
-    color: #232931;
-    background: #4a94d9;
+    color: #1d2323;
+    background: #d8bc71;
     padding: 0.25rem 0.5rem;
     &:hover {
       color: #393e46;
-      background: #5aafff;
-    }
-    &:active {
-      color: #fff;
-      background: #34628e;
+      background: #ecdeb8;
     }
   }
 `;

@@ -9,9 +9,8 @@ import GlobalStyles from "./styles/GlobalStyles";
 const AppStyles = styled.main`
   width: 800px;
   max-width: 100%;
-  margin: 0 auto;
-  background: #eee;
-  padding: 2rem 0;
+  margin: 4rem auto;
+  background: #e0e0ec;
   position: relative;
   min-height: 70vh;
 `;

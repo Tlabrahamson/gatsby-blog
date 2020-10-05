@@ -9,17 +9,21 @@ import { useSiteMetadata } from "../hooks/useSiteMetadata";
 const BlogWrapper = styled.main`
   display: grid;
   grid-template-columns: 1fr;
-  margin-bottom: -2rem;
+  grid-row-gap: 4rem;
 
   h1 {
     color: #1d2b39;
+  }
+
+  @media screen and (max-width: 800px) {
+    margin: 0;
+    // grid-row-gap: 2rem;
   }
 `;
 
 const PostWrapper = styled.div`
   padding: 2rem 2rem;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  margin-bottom: 4rem;
   background: #fff;
 `;
 

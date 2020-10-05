@@ -1,3 +1,4 @@
+
 const siteMetadata = {
   title: `A Dev Called Tim`,
   description: `Web Dev`,
@@ -8,8 +9,8 @@ const siteMetadata = {
   twitterUsername: `@timabrahamson1`,
   authorName: `Tim Abrahamson`
 };
-
 module.exports = {
+
   siteMetadata: siteMetadata,
   plugins: [
     `gatsby-plugin-styled-components`,

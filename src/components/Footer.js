@@ -3,17 +3,19 @@ import React from "react";
 import styled from "styled-components";
 
 const FooterStyle = styled.footer`
-  background: #232931;
+  background: #1d2323;
   color: #fff;
-  padding: 2rem 4rem;
+  padding: 1rem 4rem;
   width: 100%;
   @media (max-width: 800px) {
     position: static;
   }
 `;
 
+const year = new Date().getFullYear();
+
 export const Footer = () => (
   <FooterStyle>
-    <h3>Tim Abrahamson &copy; 2020</h3>
+    <h3>&copy; {year} Tim Abrahamson</h3>
   </FooterStyle>
 );
