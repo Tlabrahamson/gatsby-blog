@@ -16,6 +16,7 @@ Now that we have the project folder ready to go, open up your text editor and op
 
 In the terminal, let’s type the commands:
 
+```jsx
 npm install express
 
 npm install mongoose
@@ -23,25 +24,34 @@ npm install mongoose
 npm install nodemon
 
 nom install dotenv
+```
 
 Express is a node.js framework that makes setting up an API quite simple. Mongoose is an object modeler that allows you to create simple data objects or schemas that makes operations to and from MongoDB a bit more streamlined. Nodemon is a dev tool that monitors for any changes to your backend code and automatically restarts the server to reflect said changes. Dotenv allows you to store environment variables that you want to keep away from the general public (such as database login information or API keys) in a .env file that can be withheld from GitHub by adding ti to your .gitignore file. If none of that makes sense, hopefully it will soon!
 
 Good news! We can start coding now. Crack open that index.js and let’s get our express server up. We need to import express and assign it to a variable like so:
 
+```jsx
 const express = require(“express”);
 const app = express();
+```
 
 Next we will listen to port 5000 with our app variable by typing out:
 
+```jsx
 app.listen(5000, () => console.log(“Server is up!”));
+```
 
 To make starting up the server a bit easier to remember, we can hop into our package-json file and replace the line:
 
+```jsx
 “test”: “echo \”Error: no test specified\” && exit 1”
+```
 
 with
 
+```jsx
 “start”: “nodemon index”
+```
 
 This allows us to start the server in the terminal with the command npm start instead of nodemon index. (You don’t have to do this, it’s just easy to remember)
 
@@ -51,29 +61,39 @@ Great! That was easy enough. Now we need to connect our server to the database. 
 
 Now we need to connect to the database with Mongoose. First, lets add mongoose under our other declarations by typing:
 
+```jsx
 const mongoose = require(“mongoose”);
+```
 
 Then, we need to use our MongoDB connection string to connect to the database.
 
 Type:
 
+```jsx
 mongoose.connect(“mongodb+srv://timbo:<password>@cluster0.vf9h2.mongodb.net/<dbname>?retryWrites=true&w=majority”, { useNewUrlParser: true, useUnifiedTopology: true}, () => console.log(“Connected to DB!”))
+```
 
-In the string, you need to replace <password> with your actual password. (The angle brackets get removed too.) and replace <dbname> with your database name. To avoid deprecation warnings, we pass the options useNewUrlParser: true and useUnifiedTopology: true. Then we have an anonymous function that logs we are connected to the database.
+In the string, you need to replace password with your actual password. (The angle brackets get removed too.) and replace dbname with your database name. To avoid deprecation warnings, we pass the options useNewUrlParser: true and useUnifiedTopology: true. Then we have an anonymous function that logs we are connected to the database.
 
 Now if you run npm start, it should launch the server and then connect to the database. NICE!
 
 You don’t want to have sensitive information like the connection string laying around for everyone to see though. That is where dotenv comes in handy. Let’s create a file in our backend folder called .env and open it up. Then let’s grab that connection string and paste it in. We can leave off the quotes. We are going to assign it to a environment variable called DB_CONNECT. You’re .env file should look something like this:
 
+```jsx
 DB_CONNECT = mongodb+srv://timbo:<password>@cluster0.vf9h2.mongodb.net/<dbname>?retryWrites=true&w=majority
+```
 
 Now, in our index.js, let’s add doting at the top 
 
+```jsx
 const dotenv = require(“dotenv”);
+```
 
 Above our connection line, we can add:
 
+```jsx
 dotenv.config();
+```
 
 Now we can remove the connection string in our mongoose connect and replace it with:
 
@@ -81,22 +101,31 @@ process.env.DB_CONNECT;
 
 So it should now look like this:
 
-mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true, useUnifiedTopology: true }, () => console.log(“Connected to DB!”));
+```jsx
+mongoose.connect(process.env.DB_CONNECT, 
+	{ useNewUrlParser: true, useUnifiedTopology: true }, 
+	() => console.log(“Connected to DB!”));
+```
 
 We should be able to connect to our database without displaying that connection string in our code now. This is useful if you plan on pushing this to git because you can now include that .env file in your .gitignore and prevent it from being pushed up.
 
 At this point we are going to go ahead and create our job model. Let’s create a new folder in backend and call it model. Inside of model let’s create a file called Job.js. In Job.js we are going to build our data object to send to the database. We need to bring in mongoose:
 
+```jsx
 const mongoose = require(“mongoose”);
+```
 
 Then we need to create a job schema and export it so we can use it elsewhere:
 
+```jsx
 const jobSchema = new mongoose.Schema({});
 
 module.exports = mongoose.model(“Job”, jobSchema);
+```
 
 Great! Now let’s populate our model with the sets of data that we want to work with. I think we will keep it relatively simple and do jobTitle, company, description, location, salary, contactName, contactEmail and date. Each set will have their own nested objects to specify the type of data, the minimum characters, the maximum characters and whether it is required or not. So the final code will end up looking something like this:
 
+```jsx
 const mongoose = require(“mongoose”);
 
 const jobSchema = new mongoose.Schema({
@@ -149,22 +178,28 @@ const jobSchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model(“Job”, jobSchema);
+```
 
 All of the nested objects are required except for the date which will be added at the moment the data is accepted from the database. That should do it for our Job model. Now we get into the fun stuff! We need to create the routes that will handle the data and communicate with the database in different ways. Let’s create a routes folder in backend. Inside of the routes folder let’s create a job.js file. At the top of the file we will bring in the router and our job model like so:
 
+```jsx
 const router = require(“express”).Router();
 const Job = require(“../model/Job”);
+```
 
 Now we will create our first two routes and then test them with Postman. We will create a route to get all of the jobs and a route to create a new job. The get all jobs route will look like this:
 
+```jsx
 router.get(“/”, async (req, res) => {
 	await Job.find()
 		.then(jobs => res.json(jobs))
 		.catch(err => res.status(400).json(“Error” + err));
 });
+```
 
 The router that we declared at the top runs a get method which takes in an endpoint or path “/“ and a function that we pass a request and a response too. We then run the find method on our job model which returns a promise where we can return the result which will be all of the jobs. The catch will return an error if something goes wrong. Before we can test to see if this works, we need to create a job. We could manually enter the data to MongoDB but let’s just go ahead and build out the create a new job route.
 
+```jsx
 router.post(“/create”, async (req, res) => {
 	const job = new Job({
 		jobTitle: req.body.jobTitle,
@@ -182,22 +217,31 @@ router.post(“/create”, async (req, res) => {
 		res.status(400).send(err);
 	}
 })
+```
 
 This time we run a post method because we are sending data as opposed to receiving it. Our endpoint will be at “/create” and we are making a request and a response. we create a new instance of our Job model called job and apply the requested values to each key in the object. Then we have a try catch block that saves the job to the database assuming everything was sent over correctly. If not, it returns an error. We have a couple more things to do before we test our first routes. Let’s export our router at the bottom of our job.js file:
 
+```jsx
 module.exports = router;
+```
 
 Now let’s go over to our index.js file and import our job route under our other imports:
 
+```jsx
 const jobRoute = require(“./routes/job”);
+```
 
 under our database connection, we need to add:
 
+```jsx
 app.use(express.json());
+```
 
 This is an express method that recognizes the incoming request object as a son object. Underneath that, let’s add our job route:
 
+```jsx
 app.use(“/api/job”, jobRoute);
+```
 
 We should be able to test our first two routes with postman now! Let’s create a job first. Open a new tab and select POST. For the URL we type:
 
@@ -205,6 +249,7 @@ http://localhost:5000/api/job/create
 
 Now we fill out the body. select the body tab under the url bar, then there is a dropdown that says text by default. We need to change that to JSON since we are dealing with JSON objects. Now we can fill out the body with our new job listing:
 
+```jsx
 {
 	“jobTitle”: “Backend Engineer”,
 	“company”: “Bookface”,
@@ -214,6 +259,7 @@ Now we fill out the body. select the body tab under the url bar, then there is a
 	“contactName”: “Zark Muckerburg”,
 	“contactEmail”: “zark@bookface.com”
 }
+```
 
 If we send this off, we should receive a new saved job object that has a unique _id and a date as well as our other keys and values. NICE! Let’s add one more job. Just change the data you entered above and send it off. Now that we have two jobs listed, let’s try getting all of our jobs. Create a new tab and make sure the GET method is selected. In the url type:
 
@@ -223,11 +269,13 @@ Then press send. It should now return both of the jobs you created!
 
 The next route we are going to create will be to get a single job by the it’s id:
 
+```jsx
 router.get(“/:id”, async (req, res) => {
 	await Job.findById(req.params.id)
 		.then(job => res.json(job))
 		.catch(err => res.status(400).json(“Error: ” + err));
 });
+```
 
 This one is simple enough. We run a get method that makes a request to a specific id path with “/:id”. Then we use the express findById method and pass in the id. Then return the job or an error. To test this route you set up a get method at:
 
@@ -237,16 +285,19 @@ Remember when you were getting those _ids from the jobs you posted earlier? You 
 
 The next route will be the delete a single job route which will be similar to the get a single job route:
 
+```jsx
 router.delete(“/:id”, async (req, res) => {
 	await Job.findByIdAndDelete(req.params.id, { useFindAndModify: false })
 		.then(res.json(“Job Deleted”))
 		.catch(err => res.status(400).json(“Error: ” + err));
 });
+```
 
 See? Pretty similar. This time we are running a delete method at the same id specific path. We then use the express findByIdAndDelete method on the id sent. This time we include a useFindAndModify: false option to avoid a depreciation error each time our server refreshes. Then we return a deleted message or an error if the request was no good. Let’s test this out. In postman you can use the same id you used to get a single job and change the get method to delete. Bye bye job.
 
 The final route we are going to set up will be an update route:
 
+```jsx
 router.post(“/update/:id“, async (req, res) => {
 	await Job.findByIdAndUpdate(req.params.id, { useFindAndModify: false }).then(
 		job => {
@@ -264,6 +315,7 @@ router.post(“/update/:id“, async (req, res) => {
 		}
 	);
 });
+```
 
 This is kind of similar to the create route but we have a new path at “/update/:id“ to point to a specific job, then we run the express method findByIdAndUpdate taking in the requested id. (Avoiding a deprecation warning again with useFindAndModify) Then we are writing over the previous values with the new requested values. Then we save the job or return an error if something went wrong. To test, let’s grab the id of our other job or create a new one on postman and head to:
 
