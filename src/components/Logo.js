@@ -63,59 +63,109 @@ const LogoWrapper = styled.svg`
     }
 
     #code {
-      animation: flip 5s infinite linear;
+      animation: flip 20s infinite linear;
       transform-origin: center;
       transform-box: fill-box;
+      position: absolute;
     }
 
     @keyframes flip {
       0%,
-      25% {
+      49% {
         transform: rotate(0) translate(0, 0);
       }
-      26%,
-      50% {
-        transform: rotate(0) translate(-4px, 0);
+      52% {
+        transform: rotate(-1turn) translate(0, 0);
       }
-      51%,
-      75% {
-        transform: rotate(0) translate(0, 0);
-      }
-      76%,
-      96% {
-        transform: rotate(0) translate(-4px, 0);
-      }
-      97% {
-        transform: rotate(-0.25turn);
-      }
-      98% {
-        transform: rotate(-0.5turn);
-      }
-      99% {
-        transform: rotate(-0.75turn);
-      }
+      53%,
       100% {
-        transform: rotate(-1turn);
+        transform: rotate(-1turn) translate(0, 0);
       }
     }
 
     #right-arm,
     #skillet-back,
     #skillet {
-      animation: move 0.5s infinite linear;
+      animation: move 20s infinite linear;
       transform-origin: center;
       transform-box: fill-box;
     }
 
     @keyframes move {
-      0% {
-        transform: translate(0, 0);
+      0%,
+      9% {
+        transform: rotate(0) translate(0, 0);
+      }
+      10%,
+      15% {
+        transform: rotate(0) translate(10px, 0);
+      }
+      16%,
+      20% {
+        transform: rotate(0) translate(0, 0);
+      }
+      21%,
+      25% {
+        transform: rotate(0) translate(10px, 0);
+      }
+      26%,
+      30% {
+        transform: rotate(0) translate(0, 0);
+      }
+      31%,
+      35% {
+        transform: rotate(0) translate(10px, 0);
+      }
+      36%,
+      40% {
+        transform: rotate(0) translate(0, 0);
+      }
+      41%,
+      45% {
+        transform: rotate(0) translate(10px, 0);
+      }
+      46%,
+      49% {
+        transform: rotate(0) translate(0, 0);
       }
       50% {
-        transform: translate(10px, 0);
+        transform: rotate(-5deg) translate(10px, 0);
       }
+      51%,
+      55% {
+        transform: rotate(0) translate(0, 0);
+      }
+      56%,
+      60% {
+        transform: rotate(0) translate(10px, 0);
+      }
+      61%,
+      65% {
+        transform: rotate(0) translate(0, 0);
+      }
+      66%,
+      70% {
+        transform: rotate(0) translate(10px, 0);
+      }
+      71%,
+      75% {
+        transform: rotate(0) translate(0, 0);
+      }
+      76%,
+      80% {
+        transform: rotate(0) translate(10px, 0);
+      }
+      81%,
+      85% {
+        transform: rotate(0) translate(0, 0);
+      }
+      86%,
+      90% {
+        transform: rotate(0) translate(10px, 0);
+      }
+      91%,
       100% {
-        transform: translate(0, 0);
+        transform: rotate(0) translate(0, 0);
       }
     }
   }
