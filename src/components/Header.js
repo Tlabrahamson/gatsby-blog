@@ -29,7 +29,7 @@ const NavLi = styled.li`
 
   a {
     transition: all 0.2s ease;
-    font-family: "Pompiere", cursive;
+    font-family: "Redressed", cursive;
     border-radius: 10px;
     color: #1d2323;
     background: #d8bc71;

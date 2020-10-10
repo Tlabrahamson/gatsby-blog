@@ -1,4 +1,3 @@
-
 const siteMetadata = {
   title: `A Dev Called Tim`,
   description: `Web Dev`,
@@ -10,7 +9,6 @@ const siteMetadata = {
   authorName: `Tim Abrahamson`
 };
 module.exports = {
-
   siteMetadata: siteMetadata,
   plugins: [
     `gatsby-plugin-styled-components`,
@@ -34,7 +32,7 @@ module.exports = {
           {
             resolve: `gatsby-plugin-google-fonts`,
             options: {
-              fonts: [`Pompiere`, `Proza Libre`, `Open Sans`],
+              fonts: [`Redressed`, `Proza Libre`, `Open Sans`],
               display: "swap"
             }
           },

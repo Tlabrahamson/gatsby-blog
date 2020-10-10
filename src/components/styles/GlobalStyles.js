@@ -34,6 +34,7 @@ p {
     font-family: 'Open Sans', sans-serif;
     line-height: 1.7;
     font-size: 18px;
+    white-space: pre-line;
 }
 
 a {
