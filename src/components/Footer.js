@@ -3,7 +3,7 @@ import React from "react";
 import styled from "styled-components";
 
 const FooterStyle = styled.footer`
-  background: #1d2323;
+  background: #1aa6b7;
   color: #fff;
   padding: 1rem 4rem;
   width: 100%;

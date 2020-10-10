@@ -8,7 +8,7 @@ const GlobalStyles = createGlobalStyle`
 }
 
 body {
-    background: #e0e0ec;
+    background: #d9ecf2;
 }
 
 main {

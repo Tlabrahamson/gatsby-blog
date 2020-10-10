@@ -4,6 +4,12 @@ import styled from "styled-components";
 const LogoWrapper = styled.svg`
   width: 300px;
 
+  #mouth {
+    transform-origin: center;
+    transform-box: fill-box;
+    transform: skew(70deg, 6deg) translate(-10px, -10px);
+  }
+
   &:hover {
     #head {
       animation: nod 2s infinite linear;
@@ -63,7 +69,7 @@ const LogoWrapper = styled.svg`
     }
 
     #code {
-      animation: flip 20s infinite linear;
+      animation: flip 10s infinite linear;
       transform-origin: center;
       transform-box: fill-box;
       position: absolute;
@@ -72,64 +78,70 @@ const LogoWrapper = styled.svg`
     @keyframes flip {
       0%,
       49% {
-        transform: rotate(0) translate(0, 0);
+        transform: rotate(0) scale(1) translate(0, 0);
       }
       52% {
-        transform: rotate(-1turn) translate(0, 0);
+        transform: rotate(-1turn) scale(0.5) translate(0, -50px);
       }
-      53%,
+      54% {
+        transform: rotate(-1turn) scale(1) translate(0, 0);
+      }
       100% {
-        transform: rotate(-1turn) translate(0, 0);
+        transform: rotate(-1turn) scale(1) translate(0, 0);
       }
     }
 
     #right-arm,
     #skillet-back,
     #skillet {
-      animation: move 20s infinite linear;
+      animation: move 10s infinite linear;
       transform-origin: center;
       transform-box: fill-box;
     }
 
     @keyframes move {
       0%,
-      9% {
+      5% {
         transform: rotate(0) translate(0, 0);
       }
-      10%,
+      6%,
+      10% {
+        transform: rotate(0) translate(6px, 0);
+      }
+      11%,
       15% {
-        transform: rotate(0) translate(10px, 0);
+        transform: rotate(0) translate(0, 0);
       }
       16%,
       20% {
-        transform: rotate(0) translate(0, 0);
+        transform: rotate(0) translate(6px, 0);
       }
       21%,
       25% {
-        transform: rotate(0) translate(10px, 0);
+        transform: rotate(0) translate(0, 0);
       }
       26%,
       30% {
-        transform: rotate(0) translate(0, 0);
+        transform: rotate(0) translate(6px, 0);
       }
       31%,
       35% {
-        transform: rotate(0) translate(10px, 0);
+        transform: rotate(0) translate(0, 0);
       }
       36%,
       40% {
-        transform: rotate(0) translate(0, 0);
+        transform: rotate(0) translate(6px, 0);
       }
       41%,
       45% {
-        transform: rotate(0) translate(10px, 0);
+        transform: rotate(0) translate(0, 0);
       }
       46%,
       49% {
-        transform: rotate(0) translate(0, 0);
+        transform: rotate(0) translate(6px, 0);
       }
       50% {
-        transform: rotate(-5deg) translate(10px, 0);
+        transform: rotate(-7deg) translate(6px, 0);
       }
       51%,
       55% {
@@ -137,7 +149,7 @@ const LogoWrapper = styled.svg`
       }
       56%,
       60% {
-        transform: rotate(0) translate(10px, 0);
+        transform: rotate(0) translate(6px, 0);
       }
       61%,
       65% {
@@ -145,7 +157,7 @@ const LogoWrapper = styled.svg`
       }
       66%,
       70% {
-        transform: rotate(0) translate(10px, 0);
+        transform: rotate(0) translate(6px, 0);
       }
       71%,
       75% {
@@ -153,7 +165,7 @@ const LogoWrapper = styled.svg`
       }
       76%,
       80% {
-        transform: rotate(0) translate(10px, 0);
+        transform: rotate(0) translate(6px, 0);
       }
       81%,
       85% {
@@ -161,7 +173,7 @@ const LogoWrapper = styled.svg`
       }
       86%,
       90% {
-        transform: rotate(0) translate(10px, 0);
+        transform: rotate(0) translate(6px, 0);
       }
       91%,
       100% {
@@ -287,9 +299,9 @@ export const Logo = () => {
             width="107.998"
             height="114.121"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feColorMatrix
               in="SourceAlpha"
               type="matrix"
