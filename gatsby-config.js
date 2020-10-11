@@ -1,6 +1,6 @@
 const siteMetadata = {
-  title: `A Dev Called Tim`,
-  description: `Web Dev`,
+  title: `Cooking With Code`,
+  description: `Delicious Code Recipes`,
   image: `/favicon.svg`,
   siteUrl: `https://timabrahamson.dev`,
   siteLanguage: `en-US`,
