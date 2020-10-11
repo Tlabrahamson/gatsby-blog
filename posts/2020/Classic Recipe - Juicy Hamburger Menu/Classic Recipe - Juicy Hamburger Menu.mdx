@@ -6,3 +6,76 @@ cover: ./cover.jpg
 coverCredit: Chris Ried on Unsplash
 ---
 ---
+
+Ahh yes, the hamburger menu. A classic and essential component of many a recipe. The hamburger menu is versatile and can be crafted a number of ways.
+
+<br/>
+
+
+**Ingredients:**
+
+*HTML*
+*CSS*
+*A dash of JavaScript to toggle the flavor*
+
+<br/>
+
+Let's get started shall we? First we need to create a project folder. Call it whatever you'd like! I'm going to go with "Juicy Burger Menu". Now let's open the project in our favorite text editor and begin cooking. 
+
+<br/>
+
+
+**Let's add three files to our project folder:**
+
+*index.html*
+*style.css*
+*burger.js*
+
+<br/>
+
+Now let's hop in our index.html and hit it with a little ! + tab to get a basic HTML document going. We'll go ahead and link our stylesheet and script. We'll also chang the title of our page to Juicy Burger Menu.
+
+
+```jsx
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Juicy Burger Menu</title>
+  </head>
+  <body>
+    <script src="./hamburger.js"></script>
+  </body>
+</html>
+
+```
+
+
+Lovely. Now we can work on our header and navigation. We will wrap everything in a header. Inside of the header we are going to have a div with an h1 inside of it that says Logo. Under the div, we want a nav element. Since we are building our hamburger from scratch, we are going to add a div with a class of "hamburger" in that nav. Inside of the "hamburger" div, we are going to add three more divs with the classes "line-1", "line-2", and "line-3". Lastly, under the "hamburger" div, we are going to add an unordered list with the class "nav-list" with four list items each with an anchor element with the class "nav-link". We can make the href on the anchors "#" and have the text Blog, Shop, About, and Contact. Something like that.
+
+
+```jsx
+<header>
+    <div class="logo">
+        <h1>Logo</h1>
+    </div>
+    <nav>
+        <div class="hamburger">
+            <div class="line-1"></div>
+            <div class="line-2"></div>
+            <div class="line-3"></div>
+        </div>
+        <ul class="nav-list">
+            <li><a class="nav-link" href="#">Blog</a></li>
+            <li><a class="nav-link" href="#">Shop</a></li>
+            <li><a class="nav-link" href="#">About</a></li>
+            <li><a class="nav-link" href="#">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+```
+
