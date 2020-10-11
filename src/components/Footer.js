@@ -3,7 +3,7 @@ import React from "react";
 import styled from "styled-components";
 
 const FooterStyle = styled.footer`
-  background: #1aa6b7;
+  background: #8bbabb;
   color: #fff;
   padding: 1rem 4rem;
   width: 100%;
@@ -16,6 +16,6 @@ const year = new Date().getFullYear();
 
 export const Footer = () => (
   <FooterStyle>
-    <h3>&copy; {year} Tim Abrahamson</h3>
+    <h3>&copy; {year} Cooking With Code</h3>
   </FooterStyle>
 );

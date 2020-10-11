@@ -87,18 +87,19 @@ export default () => {
             high school where I took a couple Java courses. I loved it but
             didn't have college aspirations. After graduating, I started working
             at Jimmy John's where I made a lot of sandwiches. Making sandwiches
-            day in and day out triggered a primal reflex to escape civilization
-            and nomad it up. The solution? Thru hike the Appalachain Trail!
+            day in and day out triggered a primal instinct to escape
+            civilization and nomad it up. The solution? Thru hike the
+            Appalachain Trail!
           </p>
         </section>
         <section>
           <h2>A Walk in the Woods</h2>
           <p>
             For 5 1/2 months I backpacked from Maine to Georgia. I watched the
-            sun rise, the sun set and the Fall colors change before my eyes.
+            sun rise, the sun set, and the Fall colors change before my eyes.
             There were certainly hardships like waking up every morning and
             hiking 15 to 20 miles a day, but there were rewards at the top of
-            every mountain. The day I completed the hike, my body was mush but I
+            every mountain. The day I completed the hike, my body was mush and I
             was ready to get back to a more familiar routine.
           </p>
         </section>
@@ -110,12 +111,12 @@ export default () => {
           <h2>My Return to the Real World</h2>
           <p>
             I slipped back into the sandwich making life because it was like
-            riding a bike. It wasn't the same though. I knew I could do better
-            if I tried harder. The tipping point was when I started a family. I
-            was blessed with adorable twin boys and it was time to do something
-            more. I started learning web development through freecodecamp.org.
-            My local community college began offering a 19 week full stack
-            development course and I opted in immediately.
+            riding a bike. I knew I could do better if I tried harder.
+            Everything changed when I started a family. I was blessed with twin
+            boys and it was time to become something more. I started learning
+            web development through freecodecamp.org. My local community college
+            began offering a 19 week full stack development course and I opted
+            in immediately.
           </p>
         </section>
         <section>

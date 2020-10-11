@@ -10,7 +10,7 @@ const AppStyles = styled.main`
   width: 800px;
   max-width: 100%;
   margin: 4rem auto;
-  background: #d9ecf2;
+  background: #eee;
   position: relative;
   min-height: 70vh;
 `;

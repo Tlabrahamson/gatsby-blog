@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const LogoWrapper = styled.svg`
-  width: 300px;
+  width: 250px;
 
   #mouth {
     transform-origin: center;

@@ -7,17 +7,46 @@ const HeaderStyles = styled.header`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  padding: 1rem 2rem;
-  background: #1aa6b7;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  justify-content: space-evenly;
+  background: #464159;
+
+  .logo {
+    padding: 1rem 0;
+  }
+
+  nav {
+    width: 100%;
+    background: #6c7b95;
+    padding: 0 4rem;
+    padding-top: 10px;
+    border-radius: 10px 10px 0 0;
+    position: relative;
+  }
+
+  nav::after {
+    content: "";
+    width: 100%;
+    height: 10px;
+    background: #6c7b95 !important;
+    position: absolute;
+    left: 0;
+    border-radius: 0 0 10px 10px;
+    z-index: -1;
+  }
+
+  @media screen and (max-width: 1200px) {
+    nav,
+    nav::after {
+      border-radius: 0;
+    }
+  }
 `;
 
 const NavUl = styled.ul`
   display: flex;
+  justify-content: space-between;
   padding: 1rem 0;
   width: 100%;
-  justify-content: space-between;
 `;
 
 const NavLi = styled.li`
@@ -32,28 +61,30 @@ const NavLi = styled.li`
     font-family: "Redressed", cursive;
     border-radius: 10px;
     color: #fff;
-    background: #ff414d;
     padding: 0.25rem 0.5rem;
-    &:hover {
+    &:hover,
+    :focus {
       color: #fff;
-      background: #f56a79;
+      background: #8bbabb;
+      padding: 2rem;
+      z-index: 99;
     }
   }
 `;
 
 export const Header = () => (
   <HeaderStyles>
-    <Link to="/">
+    <Link className="logo" to="/">
       <Logo />
     </Link>
 
     <nav>
       <NavUl>
         <NavLi>
-          <Link to="/about">About</Link>
+          <Link to="/blog">Blog</Link>
         </NavLi>
         <NavLi>
-          <Link to="/blog">Blog</Link>
+          <Link to="/about">About</Link>
         </NavLi>
         <NavLi>
           <Link to="/gear">Gear</Link>

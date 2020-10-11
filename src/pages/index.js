@@ -35,11 +35,11 @@ export default ({ data }) => {
         twitterUsername={twitterUsername}
       />
       <IndexWrapper>
-        <h1>Hello, Welcome to Cooking With Code</h1>
+        <h1>Welcome to Cooking With Code</h1>
         <p>
-          I'm a web developer who loves working with JavaScript. My goal is
-          assist developers of all skill levels. I plan to make a video to go
-          along with every blog just in case you don't care much for reading.{" "}
+          Here, we are going to be cooking up some delicious code recipes from
+          single functional components to full course meals that a sure to get
+          some nods. Enjoy and happy coding/cooking.{" "}
           <span role="img" aria-label="This is a thumbs up emoji">
             👍
           </span>
