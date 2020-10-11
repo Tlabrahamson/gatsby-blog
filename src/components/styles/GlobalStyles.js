@@ -46,7 +46,7 @@ li {
 }
 
 hr {
-    margin: 4rem 0rem;
+    margin: 1rem 0rem;
 }
 `;
 
