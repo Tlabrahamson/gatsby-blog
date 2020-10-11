@@ -40,6 +40,12 @@ const HeaderStyles = styled.header`
       border-radius: 0;
     }
   }
+
+  @media screen and (max-width: 800px) {
+    nav {
+      padding: 0 2rem;
+    }
+  }
 `;
 
 const NavUl = styled.ul`
