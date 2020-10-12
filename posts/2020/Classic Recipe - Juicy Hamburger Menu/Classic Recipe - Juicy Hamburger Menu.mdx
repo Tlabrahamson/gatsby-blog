@@ -33,7 +33,7 @@ Let's get started shall we? First we need to create a project folder. Call it wh
 
 <br/>
 
-Now let's hop in our index.html and hit it with a little ! + tab to get a basic HTML document going. We'll go ahead and link our stylesheet and script. We'll also chang the title of our page to Juicy Burger Menu.
+Let's start creating our index.html with a little ! + tab to get a basic HTML document going. We'll go ahead and link our stylesheet and script. We'll also chang the title of our page to Juicy Burger Menu.
 
 
 ```jsx
@@ -79,3 +79,440 @@ Lovely. Now we can work on our header and navigation. We will wrap everything in
 
 ```
 
+The last thing we are going to do in our index.html is add some dummy content under the header to demonstrate how the menu will cover the content. Let's add a main container with three articles each with a section, a header and a paragraph.
+
+```jsx
+<main>
+  <article>
+    <section>
+      <h2>Lorem, ipsum dolor.</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
+        voluptatum minima non ratione cum error mollitia voluptates velit
+        nihil placeat corporis eius eveniet sequi labore cupiditate optio,
+        facere voluptate adipisci excepturi aut sit? Ea hic provident, quos
+        quae assumenda obcaecati?
+      </p>
+    </section>
+  </article>
+  <article>
+    <section>
+      <h2>Lorem, ipsum dolor.</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea nobis
+        fugit mollitia? Perferendis labore facilis, quod blanditiis ea,
+        maxime explicabo aperiam nemo cumque sequi impedit. Vel ut
+        voluptates nemo quibusdam repellendus omnis adipisci facere? Laborum
+        eius ad sint perferendis eaque!
+      </p>
+    </section>
+  </article>
+  <article>
+    <section>
+      <h2>Lorem, ipsum dolor.</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea nobis
+        fugit mollitia? Perferendis labore facilis, quod blanditiis ea,
+        maxime explicabo aperiam nemo cumque sequi impedit. Vel ut
+        voluptates nemo quibusdam repellendus omnis adipisci facere? Laborum
+        eius ad sint perferendis eaque!
+      </p>
+    </section>
+  </article>
+</main>
+
+```
+
+That'll do it for our HTML. Let's set it aside and work on our CSS.
+
+<br/>
+
+Let's open up our style.css and do a basic reset on the document by using the universal selector to set the margin and padding to 0 and the box-sizing to border-box.
+
+```jsx
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+```
+
+Now we are going to focus on the layout of the page. At the moment, everything is bunched together. We can begin to make the header look nice by displaying it as flex, justify-content space between, align items center, and give it 1rem padding on the top and bottom and 4rem left and right.
+
+```jsx
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 4rem;
+}
+```
+
+Let's get the nav-list and remove the list styles, display it as flex, and justify content space-evenly. We can also get the nav-links and remove the text-decoration, give it padding of 1rem, increase the font-size, and set the color to inherit.
+
+```jsx
+.nav-list {
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.nav-link {
+  text-decoration: none;
+  justify-content: space-between;
+  padding: 1rem;
+  font-size: 1.25rem;
+  color: inherit;
+}
+
+```
+
+Since our focus is the hamburger, I'm just going to throw down some basic styling on the elements below the header.
+
+```jsx
+main {
+  margin: 2rem auto;
+  padding: 0rem 4rem;
+  width: 800px;
+}
+
+article {
+  margin: 4rem 0;
+}
+
+article h2 {
+  font-size: 2.5rem;
+}
+
+article p {
+  font-size: 1.25rem;
+}
+
+```
+
+Mmmmmhmmm. That's really coming along. Problem is, if the screen is smaller, everything will get jumbled up or come off of the screen completely. That means that it is media query time. We are going to have just one media query that checks if the max width is less than 800px.
+
+<br/>
+
+Let's loosen up the padding on the header and make our hamburger visible.
+
+```jsx
+@media screen and (max-width: 800px) {
+  header {
+    padding: 1rem 2rem;
+  }
+
+  .hamburger {
+    display: block;
+    cursor: pointer;
+  }
+
+  .line-1,
+  .line-2,
+  .line-3 {
+    width: 24px;
+    height: 4px;
+    background: #000;
+    margin: 2px 0;
+  }
+}
+
+```
+
+We gave the lines some dimension and added a background color as well as some margin. Now we are really jumbled! We can make the nav-list disappear by displaying it as none, but that won't allow us to do any transition animation later. SO, we can just push it off the screen by making it's position absolute. We will also go ahead and make the main text container responsive.
+
+```jsx
+.nav-list {
+    position: absolute;
+    top: -50%;
+    left: 50%;
+}
+
+main {
+    width: 100%;
+    padding: 0rem 2rem;
+}
+
+```
+
+Now we are cooking! Nothing will work without functionality though. Let's crack open our hamburger.js and add some! We want to get a hold on our hamburger class that wraps the three lines. We also want our nav-list.
+
+```jsx
+const hamburger = document.querySelector(".hamburger");
+const navList = document.querySelector(".nav-list");
+
+```
+
+Now that we have both of our classes stored in the constants hamburger and navList, we want to trigger an event each time the hamburger is clicked. Let's add an event listener to our hamburger constant and pass in the click event and a function that we will call toggleMenu.
+
+```jsx
+hamburger.addEventListener('click', toggleMenu);
+
+```
+
+For the toggleMenu function, we want to toggle a class on our navList called 'active' each time the hamburger is clicked. It is short and sweet!
+
+```jsx
+const toggleMenu = () => {
+  navList.classList.toggle("active");
+};
+
+```
+
+Since I used an arrow function, our function must be above the event listener. The file should look something like:
+
+```jsx
+const hamburger = document.querySelector(".hamburger");
+const navList = document.querySelector(".nav-list");
+
+const toggleMenu = () => {
+  navList.classList.toggle("active");
+};
+
+hamburger.addEventListener("click", toggleMenu);
+```
+
+That's it for our JavaScript! Or is it? For now, let's get back in our style.css and create the active class.
+
+```jsx
+.active {
+    top: 0;
+    height: 100vh;
+}
+
+```
+
+The active class will set the top to 0 as opposed to the -50% that we have to move it off screen. We give it a height of 100vh so it will take up the entire height of the screen when it is active. So now if we click our hamburger...
+
+<br/>
+
+I guess we should have cooked it longer. We can fix this! Let's start by updating our nav-list class in our media query.
+
+```jsx
+.nav-list {
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translate(-50%);
+    height: 0;
+    background: #fff;
+    z-index: 1;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+```
+
+
+
+That's a juicy hamburger menu! In case I jumped around too much, here is the complete code for all three files.
+
+**index.html**
+
+```jsx
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Juicy Hamburger Menu</title>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <h1>Logo</h1>
+      </div>
+      <nav>
+        <div class="hamburger">
+          <div class="line-1"></div>
+          <div class="line-2"></div>
+          <div class="line-3"></div>
+        </div>
+        <ul class="nav-list">
+          <li><a class="nav-link" href="#">Link1</a></li>
+          <li><a class="nav-link" href="#">Link2</a></li>
+          <li><a class="nav-link" href="#">Link3</a></li>
+          <li><a class="nav-link" href="#">Link4</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <article>
+        <section>
+          <h2>Lorem, ipsum dolor.</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
+            voluptatum minima non ratione cum error mollitia voluptates velit
+            nihil placeat corporis eius eveniet sequi labore cupiditate optio,
+            facere voluptate adipisci excepturi aut sit? Ea hic provident, quos
+            quae assumenda obcaecati?
+          </p>
+        </section>
+      </article>
+      <article>
+        <section>
+          <h2>Lorem, ipsum dolor.</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea nobis
+            fugit mollitia? Perferendis labore facilis, quod blanditiis ea,
+            maxime explicabo aperiam nemo cumque sequi impedit. Vel ut
+            voluptates nemo quibusdam repellendus omnis adipisci facere? Laborum
+            eius ad sint perferendis eaque!
+          </p>
+        </section>
+      </article>
+      <article>
+        <section>
+          <h2>Lorem, ipsum dolor.</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea nobis
+            fugit mollitia? Perferendis labore facilis, quod blanditiis ea,
+            maxime explicabo aperiam nemo cumque sequi impedit. Vel ut
+            voluptates nemo quibusdam repellendus omnis adipisci facere? Laborum
+            eius ad sint perferendis eaque!
+          </p>
+        </section>
+      </article>
+    </main>
+    <script src="./hamburger.js"></script>
+  </body>
+</html>
+
+
+```
+
+**style.css**
+
+```jsx
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 4rem;
+}
+
+.hamburger {
+  display: none;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.nav-link {
+  text-decoration: none;
+  padding: 1rem;
+  font-size: 1.25rem;
+  color: inherit;
+}
+
+main {
+  margin: 2rem auto;
+  padding: 0rem 4rem;
+  width: 800px;
+}
+
+article {
+  margin: 4rem 0;
+}
+
+article h2 {
+  font-size: 2.5rem;
+}
+
+article p {
+  font-size: 1.25rem;
+}
+
+@media screen and (max-width: 800px) {
+  header {
+    padding: 1rem 2rem;
+  }
+
+  .logo {
+    z-index: 2;
+  }
+
+  .hamburger {
+    display: block;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+  }
+
+  .line-1,
+  .line-2,
+  .line-3 {
+    width: 24px;
+    height: 4px;
+    background: #000;
+    margin: 2px 0;
+  }
+
+  .nav-list {
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transition: all 0.4s ease;
+    height: 0;
+    background: #fff;
+    z-index: 1;
+    flex-direction: column;
+    align-items: center;
+    transform: translate(-50%);
+    width: 100%;
+  }
+
+  .active {
+    top: 0;
+    height: 100vh;
+  }
+
+  .body-active {
+    overflow-y: hidden;
+  }
+
+  main {
+    width: 100%;
+    padding: 0rem 2rem;
+  }
+}
+
+
+```
+
+**hamburger.js**
+
+```jsx
+const hamburger = document.querySelector(".hamburger");
+const navList = document.querySelector(".nav-list");
+const body = document.querySelector("body");
+
+const toggleMenu = () => {
+  navList.classList.toggle("active");
+  body.classList.toggle("body-active");
+};
+
+hamburger.addEventListener("click", toggleMenu);
+
+
+```
+
+Hope this was helpful! Stay tuned for more recipes.
