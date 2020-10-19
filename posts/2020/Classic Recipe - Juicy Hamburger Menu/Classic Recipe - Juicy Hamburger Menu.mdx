@@ -1,16 +1,19 @@
 ---
 title: Classic Recipe - Juicy Hamburger Menu
-date: 2020-10-04
+date: 2020-10-19
 published: true
 cover: ./cover.jpg
-coverCredit: Chris Ried on Unsplash
+coverCredit: Amirali Mirhashemian on Unsplash
 ---
 ---
 
-Ahh yes, the hamburger menu. A classic and essential component of many a recipe. The hamburger menu is versatile and can be crafted a number of ways.
+Ahh yes, the hamburger menu. A classic and essential component of many a website. The hamburger menu is versatile and can be crafted a number of ways.
 
 <br/>
 
+We're going to be making a hamburger menu from scratch and will add some CSS transitions to make it look tasty.
+
+<br/>
 
 **Ingredients:**
 
@@ -20,12 +23,12 @@ Ahh yes, the hamburger menu. A classic and essential component of many a recipe.
 
 <br/>
 
-Let's get started shall we? First we need to create a project folder. Call it whatever you'd like! I'm going to go with "Juicy Burger Menu". Now let's open the project in our favorite text editor and begin cooking. 
+Let's get started shall we? First you need to create a project folder. Call it whatever you'd like! I'm going to go with "Juicy Burger Menu". Now, let's open the project in our favorite text editor and begin cooking. 
 
 <br/>
 
 
-**Let's add three files to our project folder:**
+**Add these three files to your project folder:**
 
 *index.html*
 *style.css*
@@ -33,7 +36,7 @@ Let's get started shall we? First we need to create a project folder. Call it wh
 
 <br/>
 
-Let's start creating our index.html with a little ! + tab to get a basic HTML document going. We'll go ahead and link our stylesheet and script. We'll also chang the title of our page to Juicy Burger Menu.
+Begin by creating your index.html with a little ! + tab to get a basic HTML document going. We'll go ahead and link our stylesheet and script. We'll also change the title of our page to Juicy Burger Menu.
 
 
 ```jsx
@@ -50,11 +53,10 @@ Let's start creating our index.html with a little ! + tab to get a basic HTML do
     <script src="./hamburger.js"></script>
   </body>
 </html>
-
 ```
 
 
-Lovely. Now we can work on our header and navigation. We will wrap everything in a header. Inside of the header we are going to have a div with an h1 inside of it that says Logo. Under the div, we want a nav element. Since we are building our hamburger from scratch, we are going to add a div with a class of "hamburger" in that nav. Inside of the "hamburger" div, we are going to add three more divs with the classes "line-1", "line-2", and "line-3". Lastly, under the "hamburger" div, we are going to add an unordered list with the class "nav-list" with four list items each with an anchor element with the class "nav-link". We can make the href on the anchors "#" and have the text Blog, Shop, About, and Contact. Something like that.
+Lovely. Now we can work on our header and navigation. We will wrap everything in a header. Inside of the header we are going to have a div with a h1 inside that says Logo. Under the div, we want a nav tag. Since we are building our hamburger from scratch, we are going to add a div with a class of "hamburger" in the nav. Inside of the "hamburger" div, we are going to add three more divs with the classes "line-1", "line-2", and "line-3". Under the "hamburger" div, we are going to add an unordered list with the class "nav-list" with four list items each with an anchor tag with the class "nav-link". We can make the href on the anchors "#" and have the text Blog, Shop, About, and Contact. Something like that.
 
 
 ```jsx
@@ -76,10 +78,9 @@ Lovely. Now we can work on our header and navigation. We will wrap everything in
         </ul>
     </nav>
 </header>
-
 ```
 
-The last thing we are going to do in our index.html is add some dummy content under the header to demonstrate how the menu will cover the content. Let's add a main container with three articles each with a section, a header and a paragraph.
+The last thing we are going to do in our index.html is add some dummy content under the header to demonstrate how the menu will cover the content. Let's add a main tag with three articles each with a section, a header and a paragraph.
 
 ```jsx
 <main>
@@ -120,14 +121,13 @@ The last thing we are going to do in our index.html is add some dummy content un
     </section>
   </article>
 </main>
-
 ```
 
 That'll do it for our HTML. Let's set it aside and work on our CSS.
 
 <br/>
 
-Let's open up our style.css and do a basic reset on the document by using the universal selector to set the margin and padding to 0 and the box-sizing to border-box.
+Now, open up your style.css and do a basic reset on the document by using the universal selector to set the margin and padding to 0 and the box-sizing to border-box. I also like to hide the overflow-x on the body, just in case something jumps off the x-axis.
 
 ```jsx
 * {
@@ -136,9 +136,12 @@ Let's open up our style.css and do a basic reset on the document by using the un
   box-sizing: border-box;
 }
 
+body {
+  overflow-x: hidden;
+}
 ```
 
-Now we are going to focus on the layout of the page. At the moment, everything is bunched together. We can begin to make the header look nice by displaying it as flex, justify-content space between, align items center, and give it 1rem padding on the top and bottom and 4rem left and right.
+Now we are going to focus on the layout of the page. At the moment, everything is bunched together. We can make the header look nice by displaying it as flex, justify-content space between, align items center, and give it 1rem padding on the top and bottom and 4rem left and right.
 
 ```jsx
 
@@ -150,7 +153,7 @@ header {
 }
 ```
 
-Let's get the nav-list and remove the list styles, display it as flex, and justify content space-evenly. We can also get the nav-links and remove the text-decoration, give it padding of 1rem, increase the font-size, and set the color to inherit.
+Let's grab the nav-list and remove the list styles, display it as flex, and justify content space-evenly. We can also get the nav-links and remove the text-decoration, give it padding of 1rem, increase the font-size, and set the color to inherit.
 
 ```jsx
 .nav-list {
@@ -166,7 +169,6 @@ Let's get the nav-list and remove the list styles, display it as flex, and justi
   font-size: 1.25rem;
   color: inherit;
 }
-
 ```
 
 Since our focus is the hamburger, I'm just going to throw down some basic styling on the elements below the header.
@@ -189,14 +191,13 @@ article h2 {
 article p {
   font-size: 1.25rem;
 }
-
 ```
 
-Mmmmmhmmm. That's really coming along. Problem is, if the screen is smaller, everything will get jumbled up or come off of the screen completely. That means that it is media query time. We are going to have just one media query that checks if the max width is less than 800px.
+Mmmmmhmmm. That's really coming along. Problem is, if the user is on mobile, everything will get jumbled up or come off of the screen completely. That means that it's media query time. We are going to have just one media query that checks if the max width is less than 800px.
 
 <br/>
 
-Let's loosen up the padding on the header and make our hamburger visible.
+We'll loosen up the padding on the header and make our hamburger visible.
 
 ```jsx
 @media screen and (max-width: 800px) {
@@ -218,10 +219,9 @@ Let's loosen up the padding on the header and make our hamburger visible.
     margin: 2px 0;
   }
 }
-
 ```
 
-We gave the lines some dimension and added a background color as well as some margin. Now we are really jumbled! We can make the nav-list disappear by displaying it as none, but that won't allow us to do any transition animation later. SO, we can just push it off the screen by making it's position absolute. We will also go ahead and make the main text container responsive.
+We gave the lines some dimension and added a background color as well as some margin. Now we are really jumbled! We can make the nav-list disappear by displaying it as none, but that will complicate things when we use transition animations later. SO, we can just push it off the screen by making it's position absolute. Also, we will go ahead and make the main text container responsive.
 
 ```jsx
 .nav-list {
@@ -234,31 +234,27 @@ main {
     width: 100%;
     padding: 0rem 2rem;
 }
-
 ```
 
-Now we are cooking! Nothing will work without functionality though. Let's crack open our hamburger.js and add some! We want to get a hold on our hamburger class that wraps the three lines. We also want our nav-list.
+Now we are cooking! We need to add functionality though. Let's crack open our hamburger.js and add some! We want to get a hold on our hamburger class that wraps the three lines. We also want our nav-list.
 
 ```jsx
 const hamburger = document.querySelector(".hamburger");
 const navList = document.querySelector(".nav-list");
-
 ```
 
-Now that we have both of our classes stored in the constants hamburger and navList, we want to trigger an event each time the hamburger is clicked. Let's add an event listener to our hamburger constant and pass in the click event and a function that we will call toggleMenu.
+Now that we have both of our classes stored in the constants hamburger and navList, we want to trigger an event each time the hamburger is clicked. Let's add an event listener to our hamburger and pass in the click event and a function that we will call toggleMenu.
 
 ```jsx
 hamburger.addEventListener('click', toggleMenu);
-
 ```
 
-For the toggleMenu function, we want to toggle a class on our navList called 'active' each time the hamburger is clicked. It is short and sweet!
+For the toggleMenu function, we want to toggle a class on our navList called 'active' each time the hamburger is clicked.
 
 ```jsx
 const toggleMenu = () => {
   navList.classList.toggle("active");
 };
-
 ```
 
 Since I used an arrow function, our function must be above the event listener. The file should look something like:
@@ -274,21 +270,20 @@ const toggleMenu = () => {
 hamburger.addEventListener("click", toggleMenu);
 ```
 
-That's it for our JavaScript! Or is it? For now, let's get back in our style.css and create the active class.
+That's it for our JavaScript! Or is it? For now, let's get back in our style.css and add the active class for our nav-list.
 
 ```jsx
-.active {
+.nav-list.active {
     top: 0;
     height: 100vh;
 }
-
 ```
 
 The active class will set the top to 0 as opposed to the -50% that we have to move it off screen. We give it a height of 100vh so it will take up the entire height of the screen when it is active. So now if we click our hamburger...
 
 <br/>
 
-I guess we should have cooked it longer. We can fix this! Let's start by updating our nav-list class in our media query.
+I guess we should have cooked it longer. We can make this look better! Let's start by updating our nav-list class in our media query.
 
 ```jsx
 .nav-list {
@@ -303,12 +298,90 @@ I guess we should have cooked it longer. We can fix this! Let's start by updatin
     align-items: center;
     width: 100%;
 }
-
 ```
 
+This is already much better! Let's fix an issue. When the menu is open, you can still scroll. To prevent this, we need to hide the overflow-y on the body of the document. So while we are in our CSS we can add a body.active with a overflow-y of hidden.
 
+```jsx
+body.active {
+    overflow-y: hidden;
+  }
+```
 
-That's a juicy hamburger menu! In case I jumped around too much, here is the complete code for all three files.
+We need to toggle this active class everytime the hamburger is clicked so let's go back to our hamburger.js.
+
+```jsx 
+const body = document.querySelector("body");
+const lineOne = document.querySelector(".line-1");
+const lineTwo = document.querySelector(".line-2");
+const lineThree = document.querySelector(".line-3");
+```
+
+I went ahead and created constants for the body as well as each of the lines on the hamburger menu. Now we are going to update our toggleMenu function to look like:
+
+```jsx
+const toggleMenu = () => {
+  navList.classList.toggle("active");
+  body.classList.toggle("active");
+  lineOne.classList.toggle("active");
+  lineTwo.classList.toggle("active");
+  lineThree.classList.toggle("active");
+};
+
+hamburger.addEventListener("click", toggleMenu);
+```
+
+We are doing the same exact thing we did with the nav-list on each of our constants. The class "active" is toggled each time the hamburger is clicked. We are getting the hamburger lines so we can animate them!
+
+<br/>
+
+If you click the hamburger now, you should not be able to scroll down with the menu open. The last thing we are going to do is add some simple transitions to spice up the menu.
+
+```jsx
+.line-1,
+.line-2,
+.line-3 {
+  width: 24px;
+  height: 4px;
+  background: #000;
+  margin: 2px 0;
+  transition: all 0.4s ease;
+}
+
+.line-1.active {
+  transform: rotate(225deg);
+  margin: 0;
+}
+
+.line-2.active {
+  opacity: 0;
+}
+
+.line-3.active {
+  transform: rotate(-45deg);
+  margin: -12px 0;
+}
+```
+
+On our nav-list, we will also add a transition to make is a smooth appearance rather than flashing on screen.
+
+```jsx
+.nav-list {
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  transition: all 0.4s ease;
+  height: 0;
+  background: #fff;
+  z-index: 1;
+  flex-direction: column;
+  align-items: center;
+  transform: translate(-50%);
+  width: 100%;
+}
+```
+
+That's a juicy hamburger menu! Here's the complete code for all three files.
 
 **index.html**
 
@@ -464,6 +537,21 @@ article p {
     height: 4px;
     background: #000;
     margin: 2px 0;
+    transition: all 0.4s ease;
+  }
+
+  .line-1.active {
+    transform: rotate(225deg);
+    margin: 0;
+  }
+
+  .line-2.active {
+    opacity: 0;
+  }
+
+  .line-3.active {
+    transform: rotate(-45deg);
+    margin: -12px 0;
   }
 
   .nav-list {
@@ -480,12 +568,12 @@ article p {
     width: 100%;
   }
 
-  .active {
+  .nav-list.active {
     top: 0;
     height: 100vh;
   }
 
-  .body-active {
+  body.active {
     overflow-y: hidden;
   }
 
@@ -496,6 +584,7 @@ article p {
 }
 
 
+
 ```
 
 **hamburger.js**
@@ -504,10 +593,16 @@ article p {
 const hamburger = document.querySelector(".hamburger");
 const navList = document.querySelector(".nav-list");
 const body = document.querySelector("body");
+const lineOne = document.querySelector(".line-1");
+const lineTwo = document.querySelector(".line-2");
+const lineThree = document.querySelector(".line-3");
 
 const toggleMenu = () => {
   navList.classList.toggle("active");
-  body.classList.toggle("body-active");
+  body.classList.toggle("active");
+  lineOne.classList.toggle("active");
+  lineTwo.classList.toggle("active");
+  lineThree.classList.toggle("active");
 };
 
 hamburger.addEventListener("click", toggleMenu);
@@ -515,4 +610,4 @@ hamburger.addEventListener("click", toggleMenu);
 
 ```
 
-Hope this was helpful! Stay tuned for more recipes.
+I hope this was helpful! Stay tuned for more recipes.
