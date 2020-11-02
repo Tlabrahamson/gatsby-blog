@@ -193,6 +193,10 @@ article p {
 }
 ```
 
+<img src="./flexed.jpg" alt="HTML with basic styling" />
+
+<br/>
+
 Mmmmmhmmm. That's really coming along. Problem is, if the user is on mobile, everything will get jumbled up or come off of the screen completely. That means that it's media query time. We are going to have just one media query that checks if the max width is less than 800px.
 
 <br/>
@@ -235,6 +239,10 @@ main {
     padding: 0rem 2rem;
 }
 ```
+
+<img src="./small-view-burger.jpg" alt="Mobile Burger Menu"/>
+
+<br/>
 
 Now we are cooking! We need to add functionality though. Let's crack open our hamburger.js and add some! We want to get a hold on our hamburger class that wraps the three lines. We also want our nav-list.
 
@@ -280,6 +288,10 @@ That's it for our JavaScript! Or is it? For now, let's get back in our style.css
 ```
 
 The active class will set the top to 0 as opposed to the -50% that we have to move it off screen. We give it a height of 100vh so it will take up the entire height of the screen when it is active. So now if we click our hamburger...
+
+<br/>
+
+<img src="./small-view-bad-style.jpg" alt="Botched Burger Menu"/>
 
 <br/>
 
@@ -380,6 +392,8 @@ On our nav-list, we will also add a transition to make is a smooth appearance ra
   width: 100%;
 }
 ```
+
+<img src="./small-view-menu-open.jpg" alt="Open hamburger menu"/>
 
 That's a juicy hamburger menu! Here's the complete code for all three files.
 
