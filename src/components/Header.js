@@ -8,10 +8,14 @@ const HeaderStyles = styled.header`
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  background: #464159;
+  background: #414859;
 
   .logo {
+    margin: 1rem 0;
     padding: 1rem 0;
+    background: #6c7b95;
+    border-radius: 50%;
+    border: solid 6px #556176;
   }
 
   nav {
